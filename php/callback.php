@@ -12,24 +12,24 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
 // }
 
 // (2) freeeで「許可する」が押されたあとに実行する処理
-if (! empty ( $_GET ['code'] )) {
-        $content = [
-            "code"          => $_GET['code'],
-            "grant_type"    => "authorization_code",
-            "client_id"     => APP_ID,
-            "client_secret" => APP_SECRET,
-            "redirect_uri"  => APP_CALLBACK,
-        ];
+// if (! empty ( $_GET ['code'] )) {
+//         $content = [
+//             "code"          => $_GET['code'],
+//             "grant_type"    => "authorization_code",
+//             "client_id"     => APP_ID,
+//             "client_secret" => APP_SECRET,
+//             "redirect_uri"  => APP_CALLBACK,
+//         ];
 
-	$curl = curl_init ( 'https://api.freee.co.jp/oauth/token.json' ); // 認証済みToken取得用
-	curl_setopt ( $curl, CURLOPT_POST, TRUE );
-	curl_setopt ( $curl, CURLOPT_POSTFIELDS, http_build_query ( $content ) );
-	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
-	$jsonToken = curl_exec ( $curl );
-	$token = json_decode ( $jsonToken, true );
+// 	$curl = curl_init ( 'https://api.freee.co.jp/oauth/token.json' ); // 認証済みToken取得用
+// 	curl_setopt ( $curl, CURLOPT_POST, TRUE );
+// 	curl_setopt ( $curl, CURLOPT_POSTFIELDS, http_build_query ( $content ) );
+// 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
+// 	$jsonToken = curl_exec ( $curl );
+// 	$token = json_decode ( $jsonToken, true );
 
-	var_dump ( $token );
-}
+// 	var_dump ( $token );
+// }
 
 // (3) Token取得後の処理。各種APIの実行
 if (! is_null ( $token ['access_token'] )) {
@@ -43,6 +43,6 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult = curl_exec ( $curl );
 	$result = json_decode ( $jsonResult, true );
 
-	var_dump ( "取得した情報<br />" );
+	var_dump ( "取得した情報" );
 	var_dump ( $result );
 }
