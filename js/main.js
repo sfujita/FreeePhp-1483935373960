@@ -3,5 +3,5 @@
  */
 // 検索ボタンクリック時
 function search() {
-	alert("test");
+	console.log("JS：searh通過");
 }
