@@ -23,28 +23,28 @@
 			"request" : ""
 		};
 
-//		/**
-//		 * Ajax通信メソッド
-//		 */
-//		$
-//				.ajax({
-//					type : "GET",
-//					url : url,
+		/**
+		 * Ajax通信メソッド
+		 */
+		$.ajax({
+					type : "GET",
+					url : url,
+					dataType: 'json',
 //					dataType : "jsonp",
 //					jsonp : 'jsoncallback',
-//					data : param,
-//					/**
-//					 * Ajax通信が成功した場合に呼び出されるメソッド
-//					 */
-//					success : function(data) {
+					data : param,
+					/**
+					 * Ajax通信が成功した場合に呼び出されるメソッド
+					 */
+					success : function(data) {
 //						$("#resultPhp").text(data + ": php通信成功");
-//					},
-//
-//					/**
-//					 * Ajax通信が失敗場合に呼び出されるメソッド
-//					 */
-//					error : function(XMLHttpRequest, textStatus, errorThrown) {
-//
+					},
+
+					/**
+					 * Ajax通信が失敗場合に呼び出されるメソッド
+					 */
+					error : function(XMLHttpRequest, textStatus, errorThrown) {
+
 //						/*
 //						 * 各エラーフィールドを設定
 //						 */
@@ -64,9 +64,9 @@
 //
 //						// エラー情報を出力します。
 //						errorDebug(XMLHttpRequest, textStatus, errorThrown);
-//
-//					}
-//				});
+
+					}
+				});
 
 		/**
 		 * サンプルのコード
