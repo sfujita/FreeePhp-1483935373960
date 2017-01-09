@@ -43,5 +43,5 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult = curl_exec ( $curl );
 	$result = json_decode ( $jsonResult, true );
 
-	var_dump ( $result );
+	var_dump ( "取得した自分の情報:".$result );
 }
