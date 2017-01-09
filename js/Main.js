@@ -23,50 +23,50 @@
 			"request" : ""
 		};
 
-		/**
-		 * Ajax通信メソッド
-		 */
-		$
-				.ajax({
-					type : "GET",
-					url : url,
-					dataType : "jsonp",
-					jsonp : 'jsoncallback',
-					data : param,
-					/**
-					 * Ajax通信が成功した場合に呼び出されるメソッド
-					 */
-					success : function(data) {
-						$("#resultPhp").text(data + ": php通信成功");
-					},
-
-					/**
-					 * Ajax通信が失敗場合に呼び出されるメソッド
-					 */
-					error : function(XMLHttpRequest, textStatus, errorThrown) {
-
-						/*
-						 * 各エラーフィールドを設定
-						 */
-						$('#errorfield').append('<hr><p>エラーが発生しました</p>');
-						// リクエスト
-						$('#errorfield')
-								.append(
-										'<p>リクエスト</p><div id="request_url" ></div><div id="request_parameter" ></div>');
-						// レスポンス
-						$('#errorfield')
-								.append(
-										'<p>レスポンス</p><div id="response_parameter" ></div>');
-						// エラー
-						$('#errorfield')
-								.append(
-										'<p>エラー</p><div id="XMLHttpRequest" ></div><div id="textStatus" ></div><div id="errorThrown" ></div>');
-
-						// エラー情報を出力します。
-						errorDebug(XMLHttpRequest, textStatus, errorThrown);
-
-					}
-				});
+//		/**
+//		 * Ajax通信メソッド
+//		 */
+//		$
+//				.ajax({
+//					type : "GET",
+//					url : url,
+//					dataType : "jsonp",
+//					jsonp : 'jsoncallback',
+//					data : param,
+//					/**
+//					 * Ajax通信が成功した場合に呼び出されるメソッド
+//					 */
+//					success : function(data) {
+//						$("#resultPhp").text(data + ": php通信成功");
+//					},
+//
+//					/**
+//					 * Ajax通信が失敗場合に呼び出されるメソッド
+//					 */
+//					error : function(XMLHttpRequest, textStatus, errorThrown) {
+//
+//						/*
+//						 * 各エラーフィールドを設定
+//						 */
+//						$('#errorfield').append('<hr><p>エラーが発生しました</p>');
+//						// リクエスト
+//						$('#errorfield')
+//								.append(
+//										'<p>リクエスト</p><div id="request_url" ></div><div id="request_parameter" ></div>');
+//						// レスポンス
+//						$('#errorfield')
+//								.append(
+//										'<p>レスポンス</p><div id="response_parameter" ></div>');
+//						// エラー
+//						$('#errorfield')
+//								.append(
+//										'<p>エラー</p><div id="XMLHttpRequest" ></div><div id="textStatus" ></div><div id="errorThrown" ></div>');
+//
+//						// エラー情報を出力します。
+//						errorDebug(XMLHttpRequest, textStatus, errorThrown);
+//
+//					}
+//				});
 
 		/**
 		 * サンプルのコード
