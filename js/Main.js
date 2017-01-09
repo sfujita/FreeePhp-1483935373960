@@ -20,7 +20,7 @@
 		var url = "https://freeephp.mybluemix.net/php/main.php";
 
 		var param = {
-			"request" : ""
+			"request" : "test"
 		};
 
 		/**
