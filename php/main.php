@@ -1,2 +1,2 @@
 <?php
-echo "php通過";
+echo '{"a":"1"}';
