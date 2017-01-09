@@ -45,25 +45,25 @@
 					 */
 					error : function(XMLHttpRequest, textStatus, errorThrown) {
 						$("#resultPhp").text("php通信失敗");
-//						/*
-//						 * 各エラーフィールドを設定
-//						 */
-//						$('#errorfield').append('<hr><p>エラーが発生しました</p>');
-//						// リクエスト
-//						$('#errorfield')
-//								.append(
-//										'<p>リクエスト</p><div id="request_url" ></div><div id="request_parameter" ></div>');
-//						// レスポンス
-//						$('#errorfield')
-//								.append(
-//										'<p>レスポンス</p><div id="response_parameter" ></div>');
-//						// エラー
-//						$('#errorfield')
-//								.append(
-//										'<p>エラー</p><div id="XMLHttpRequest" ></div><div id="textStatus" ></div><div id="errorThrown" ></div>');
-//
-//						// エラー情報を出力します。
-//						errorDebug(XMLHttpRequest, textStatus, errorThrown);
+						/*
+						 * 各エラーフィールドを設定
+						 */
+						$('#errorfield').append('<hr><p>エラーが発生しました</p>');
+						// リクエスト
+						$('#errorfield')
+								.append(
+										'<p>リクエスト</p><div id="request_url" ></div><div id="request_parameter" ></div>');
+						// レスポンス
+						$('#errorfield')
+								.append(
+										'<p>レスポンス</p><div id="response_parameter" ></div>');
+						// エラー
+						$('#errorfield')
+								.append(
+										'<p>エラー</p><div id="XMLHttpRequest" ></div><div id="textStatus" ></div><div id="errorThrown" ></div>');
+
+						// エラー情報を出力します。
+						errorDebug(XMLHttpRequest, textStatus, errorThrown);
 
 					}
 				});
@@ -131,3 +131,14 @@
 		// });
 	}
 })();
+
+
+
+/*
+ * デバッグ情報（エラー）を出力します。
+ */
+ function errorDebug(XMLHttpRequest, textStatus, errorThrown) {
+     $("#XMLHttpRequest").html("XMLHttpRequest : " + XMLHttpRequest.status);
+     $("#textStatus").html("textStatus : " + textStatus);
+     $("#errorThrown").html("errorThrown : " + errorThrown.message);
+ }
