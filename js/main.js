@@ -3,5 +3,5 @@
  */
 // 検索ボタンクリック時
 function search() {
-	console.log("JS：searh通過");
+	$("#result").text("通信成功");
 }
