@@ -37,14 +37,14 @@
 					 * Ajax通信が成功した場合に呼び出されるメソッド
 					 */
 					success : function(data) {
-//						$("#resultPhp").text(data + ": php通信成功");
+						$("#resultPhp").text(data + ": php通信成功");
 					},
 
 					/**
 					 * Ajax通信が失敗場合に呼び出されるメソッド
 					 */
 					error : function(XMLHttpRequest, textStatus, errorThrown) {
-
+						$("#resultPhp").text("php通信失敗");
 //						/*
 //						 * 各エラーフィールドを設定
 //						 */
