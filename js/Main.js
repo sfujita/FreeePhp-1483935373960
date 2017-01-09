@@ -34,7 +34,7 @@
 					dataType: 'json',
 //					dataType : "jsonp",
 //					jsonp : 'jsoncallback',
-					data : param,
+//					data : param,
 					/**
 					 * Ajax通信が成功した場合に呼び出されるメソッド
 					 */
