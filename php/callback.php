@@ -6,10 +6,10 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
 // コールバックURIと同じにする必要があります。
 
 // (1) いちばん最初の処理。OAuth2の入り口。
-if (empty ( $_GET )) {
-	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">認証開始</a></html>', 'https://secure.freee.co.jp/oauth/authorize', // 認証用
-APP_ID, urlencode ( APP_CALLBACK ) );
-}
+// if (empty ( $_GET )) {
+// 	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">認証開始</a></html>', 'https://secure.freee.co.jp/oauth/authorize', // 認証用
+// APP_ID, urlencode ( APP_CALLBACK ) );
+// }
 
 // (2) freeeで「許可する」が押されたあとに実行する処理
 if (! empty ( $_GET ['code'] )) {
