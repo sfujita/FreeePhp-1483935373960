@@ -19,8 +19,10 @@
 
 		var url = "https://freeephp.mybluemix.net/php/main.php";
 
+		var val = "a";
+
 		var param = {
-			"request" : "test"
+			"request" : val
 		};
 
 		/**
