@@ -50,9 +50,8 @@ if (! is_null ( $token ['access_token'] )) {
 	// var_dump ( $result );
 	// ↑↑↑↑↑↑↑↑
 
-
-
-// POST処理
+	// POST処理
+	var_dump ( "POST処理" );
 	$data = "{
   \"company_id\" : 809788,
   \"issue_date\" : \"2013-01-01\",
@@ -85,6 +84,7 @@ if (! is_null ( $token ['access_token'] )) {
 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json'
 	) );
+	var_dump ( "$curl設定" );
 	curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, false );
 	curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, false );
 	curl_setopt ( $curl, CURLOPT_VERBOSE, true );
@@ -96,5 +96,4 @@ if (! is_null ( $token ['access_token'] )) {
 
 	var_dump ( "取得した情報" );
 	var_dump ( $result );
-
 }
