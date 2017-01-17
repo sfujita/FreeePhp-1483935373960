@@ -113,9 +113,18 @@ if (! is_null ( $token ['access_token'] )) {
 	);
 	$ch = curl_init ();
 	curl_setopt ( $ch, CURLOPT_URL, $url );
-	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
-			'Content-Type: application/json'
-	) );
+
+	$header = [
+			'Authorization: Bearer ' . $token['access_token'],
+	];
+
+
+// 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+// 			'Content-Type: application/json'
+// 	) );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
+
+
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
 	curl_setopt ( $ch, CURLOPT_VERBOSE, true );
