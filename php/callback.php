@@ -93,4 +93,8 @@ if (! is_null ( $token ['access_token'] )) {
 	curl_setopt_array ( $curl, $options );
 	$result = curl_exec ( $curl );
 	curl_close ( $curl );
+
+	var_dump ( "取得した情報" );
+	var_dump ( $result );
+
 }
