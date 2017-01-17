@@ -119,10 +119,11 @@ if (! is_null ( $token ['access_token'] )) {
 	];
 
 
-// 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
-// 			'Content-Type: application/json'
-// 	) );
-	curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+			'Content-Type: application/json',
+			'Authorization: Bearer ' . $token['access_token']
+	) );
+// 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
 
 
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
