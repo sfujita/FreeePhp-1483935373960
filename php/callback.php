@@ -52,47 +52,78 @@ if (! is_null ( $token ['access_token'] )) {
 
 	// POST処理
 	var_dump ( "POST処理" );
-	$data = "{
-  \"company_id\" : 809788,
-  \"issue_date\" : \"2013-01-01\",
-  \"due_date\" : \"2013-02-28\",
-  \"type\" : \"expense\",
-  \"partner_id\" : 201,
-  \"ref_number\" : \"123-456\",
-  \"details\" : [
+	// $data = "{
+	// \"company_id\" : 809788,
+	// \"issue_date\" : \"2013-01-01\",
+	// \"due_date\" : \"2013-02-28\",
+	// \"type\" : \"expense\",
+	// \"partner_id\" : 201,
+	// \"ref_number\" : \"123-456\",
+	// \"details\" : [
+	// {
+	// \"account_item_id\" : 803,
+	// \"tax_code\" : 6,
+	// \"item_id\" : 501,
+	// \"section_id\" : 1,
+	// \"tag_ids\" : [1, 2, 3],
+	// \"amount\" : 6666,
+	// \"description\" : \"備考\"
+	// }
+	// ],
+	// \"payments\" : [
+	// {
+	// \"date\" : \"2013-01-28\",
+	// \"from_walletable_type\" : \"bank_account\",
+	// \"from_walletable_id\" : 103,
+	// \"amount\" : 6666
+	// }
+	// ]
+	// }";
+
+	$data = '{
+  "company_id" : 809788,
+  "issue_date" : "2017-01-21",
+  "due_date" : "2017-02-28",
+  "type" : "expense",
+  "details" : [
     {
-      \"account_item_id\" : 803,
-      \"tax_code\" : 6,
-      \"item_id\" : 501,
-      \"section_id\" : 1,
-      \"tag_ids\" : [1, 2, 3],
-      \"amount\" : 6666,
-      \"description\" : \"備考\"
+      "account_item_id" : 803,
+      "tax_code" : 6,
+      "item_id" : 501,
+      "amount" : 99999,
+      "description" : "備考"
     }
   ],
-  \"payments\" : [
+  "payments" : [
     {
-      \"date\" : \"2013-01-28\",
-      \"from_walletable_type\" : \"bank_account\",
-      \"from_walletable_id\" : 103,
-      \"amount\" : 6666
+      "date" : "2013-01-28",
+      "from_walletable_type" : "bank_account",
+      "from_walletable_id" : 103,
+      "amount" : 66666
     }
   ]
-}";
+}';
 
-	$curl = curl_init ( 'https://api.freee.co.jp/api/1/deals' ); // POSTで登録
-	curl_setopt ( $curl, CURLOPT_HTTPHEADER, array (
+	$url = 'https://api.freee.co.jp/api/1/deals';
+
+	$options = array (
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_AUTOREFERER => true
+	);
+	$ch = curl_init ();
+	curl_setopt ( $ch, CURLOPT_URL, $url );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json'
 	) );
-	var_dump ( "$curl設定" );
-	curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, false );
-	curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, false );
-	curl_setopt ( $curl, CURLOPT_VERBOSE, true );
-	curl_setopt ( $curl, CURLOPT_POSTFIELDS, $data );
-	curl_setopt ( $curl, CURLOPT_POST, true );
-	curl_setopt_array ( $curl, $options );
-	$result = curl_exec ( $curl );
-	curl_close ( $curl );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
+	curl_setopt ( $ch, CURLOPT_VERBOSE, true );
+	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+	curl_setopt ( $ch, CURLOPT_POST, true );
+	curl_setopt_array ( $ch, $options );
+	$result = curl_exec ( $ch );
+	curl_close ( $ch );
 
 	var_dump ( "取得した情報" );
 	var_dump ( $result );
