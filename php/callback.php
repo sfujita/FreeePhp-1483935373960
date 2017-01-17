@@ -7,7 +7,7 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
 
 // (1) いちばん最初の処理。OAuth2の入り口。
 // if (empty ( $_GET )) {
-// 	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">認証開始</a></html>', 'https://secure.freee.co.jp/oauth/authorize', // 認証用
+// printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">認証開始</a></html>', 'https://secure.freee.co.jp/oauth/authorize', // 認証用
 // APP_ID, urlencode ( APP_CALLBACK ) );
 // }
 
@@ -37,15 +37,60 @@ if (! is_null ( $token ['access_token'] )) {
             'Authorization: Bearer ' . $token['access_token'],
         ];
 
-// 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-    $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+	// ↓↓↓↓↓↓↓
+	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
+	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+
+	// curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
+	// curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
+	// $jsonResult = curl_exec ( $curl );
+	// $result = json_decode ( $jsonResult, true );
+
+	// var_dump ( "取得した情報" );
+	// var_dump ( $result );
+	// ↑↑↑↑↑↑↑↑
 
 
-	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
-	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
-	$jsonResult = curl_exec ( $curl );
-	$result = json_decode ( $jsonResult, true );
 
-	var_dump ( "取得した情報" );
-	var_dump ( $result );
+// POST処理
+	$data = "{
+  \"company_id\" : 809788,
+  \"issue_date\" : \"2013-01-01\",
+  \"due_date\" : \"2013-02-28\",
+  \"type\" : \"expense\",
+  \"partner_id\" : 201,
+  \"ref_number\" : \"123-456\",
+  \"details\" : [
+    {
+      \"account_item_id\" : 803,
+      \"tax_code\" : 6,
+      \"item_id\" : 501,
+      \"section_id\" : 1,
+      \"tag_ids\" : [1, 2, 3],
+      \"amount\" : 6666,
+      \"description\" : \"備考\"
+    }
+  ],
+  \"payments\" : [
+    {
+      \"date\" : \"2013-01-28\",
+      \"from_walletable_type\" : \"bank_account\",
+      \"from_walletable_id\" : 103,
+      \"amount\" : 6666
+    }
+  ]
+}";
+
+	$curl = curl_init ( 'https://api.freee.co.jp/api/1/deals' ); // POSTで登録
+	curl_setopt ( $curl, CURLOPT_HTTPHEADER, array (
+			'Content-Type: application/json'
+	) );
+	curl_setopt ( $curl, CURLOPT_SSL_VERIFYPEER, false );
+	curl_setopt ( $curl, CURLOPT_SSL_VERIFYHOST, false );
+	curl_setopt ( $curl, CURLOPT_VERBOSE, true );
+	curl_setopt ( $curl, CURLOPT_POSTFIELDS, $data );
+	curl_setopt ( $curl, CURLOPT_POST, true );
+	curl_setopt_array ( $curl, $options );
+	$result = curl_exec ( $curl );
+	curl_close ( $curl );
 }
