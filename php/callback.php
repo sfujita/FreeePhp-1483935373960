@@ -87,18 +87,18 @@ if (! is_null ( $token ['access_token'] )) {
   "type" : "expense",
   "details" : [
     {
-      "account_item_id" : 803,
-      "tax_code" : 6,
-      "item_id" : 501,
+      "account_item_id" : 127717210,
+      "tax_code" : 108,
+      "item_id" : 127358720,
       "amount" : 99999,
-      "description" : "備考"
+      "description" : "テストの登録"
     }
   ],
   "payments" : [
     {
-      "date" : "2013-01-28",
+      "date" : "2017-01-28",
       "from_walletable_type" : "bank_account",
-      "from_walletable_id" : 103,
+      "from_walletable_id" : 150980,
       "amount" : 66666
     }
   ]
