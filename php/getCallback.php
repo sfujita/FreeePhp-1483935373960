@@ -39,7 +39,8 @@ if (! is_null ( $token ['access_token'] )) {
 
 	// ↓↓↓↓↓↓↓
 //  	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-	$curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+// 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+	$curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
 
 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
