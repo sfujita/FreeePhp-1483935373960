@@ -37,72 +37,54 @@ if (! is_null ( $token ['access_token'] )) {
             'Authorization: Bearer ' . $token['access_token'],
         ];
 
-	// ↓↓↓↓↓↓↓
-	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
-
-	// curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
-	// curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
-	// $jsonResult = curl_exec ( $curl );
-	// $result = json_decode ( $jsonResult, true );
-
-	// var_dump ( "取得した情報" );
-	// var_dump ( $result );
-	// ↑↑↑↑↑↑↑↑
-
 	// POST処理
-	var_dump ( "POST処理" );
-	// $data = "{
-	// \"company_id\" : 809788,
-	// \"issue_date\" : \"2013-01-01\",
-	// \"due_date\" : \"2013-02-28\",
-	// \"type\" : \"expense\",
-	// \"partner_id\" : 201,
-	// \"ref_number\" : \"123-456\",
-	// \"details\" : [
-	// {
-	// \"account_item_id\" : 803,
-	// \"tax_code\" : 6,
-	// \"item_id\" : 501,
-	// \"section_id\" : 1,
-	// \"tag_ids\" : [1, 2, 3],
-	// \"amount\" : 6666,
-	// \"description\" : \"備考\"
-	// }
-	// ],
-	// \"payments\" : [
-	// {
-	// \"date\" : \"2013-01-28\",
-	// \"from_walletable_type\" : \"bank_account\",
-	// \"from_walletable_id\" : 103,
-	// \"amount\" : 6666
-	// }
-	// ]
-	// }";
-
+	// 社長が作成したやつを使う
+    var_dump ( "POST処理" );
 	$data = '{
-  "company_id" : 809788,
-  "issue_date" : "2017-01-21",
-  "due_date" : "2017-02-28",
-  "type" : "expense",
-  "details" : [
-    {
-      "account_item_id" : 127717210,
-      "tax_code" : 108,
-      "item_id" : 127358720,
-      "amount" : 99999,
-      "description" : "テストの登録"
-    }
-  ],
-  "payments" : [
-    {
-      "date" : "2017-01-28",
-      "from_walletable_type" : "credit_card",
-      "from_walletable_id" : 150980,
-      "amount" : 66666
-    }
-  ]
-}';
+		"company_id" : 809788,
+		"issue_date" : "2017-01-19",
+		"due_date" : "2017-02-28",
+		"type" : "income",
+		"details" : [
+		{
+		"account_item_id" : 700,
+		"tax_code" : 108,
+		"item_id" : 100000,
+		"amount" : 88888,
+		"ref_number" : 2017011901,
+		"description" : "株式会社ジョインシップ"
+		}
+		],
+	}';
+
+	/**
+	 * **************
+	 * var_dump ( "POST処理" );
+	 * $data = '{
+	 * "company_id" : 809788,
+	 * "issue_date" : "2017-01-21",
+	 * "due_date" : "2017-02-28",
+	 * "type" : "expense",
+	 * "details" : [
+	 * {
+	 * "account_item_id" : 127717210,
+	 * "tax_code" : 108,
+	 * "item_id" : 127358720,
+	 * "amount" : 99999,
+	 * "description" : "テストの登録"
+	 * }
+	 * ],
+	 * "payments" : [
+	 * {
+	 * "date" : "2017-01-28",
+	 * "from_walletable_type" : "credit_card",
+	 * "from_walletable_id" : 150980,
+	 * "amount" : 66666
+	 * }
+	 * ]
+	 * }';
+	 * *****************
+	 */
 
 	$url = 'https://api.freee.co.jp/api/1/deals';
 
@@ -118,13 +100,11 @@ if (! is_null ( $token ['access_token'] )) {
 			'Authorization: Bearer ' . $token['access_token'],
 	];
 
-
 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json',
-			'Authorization: Bearer ' . $token['access_token']
+			'Authorization: Bearer ' . $token ['access_token']
 	) );
-// 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
-
+	// curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
 
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
