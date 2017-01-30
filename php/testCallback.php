@@ -1,7 +1,7 @@
 <?php
-define ( 'APP_ID', 'f59339c44c93cdf7598607005ddea573a200cfc23f10d5954c03e98cf027958b' );
-define ( 'APP_SECRET', '7849ea17ddb74e188afda1087eae8aac9e7fa94111e89f215e816dc801cd7841' );
-define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
+define ( 'APP_ID', 'c51200f7d63b84569dcb4b62b36d8e78b97a435fa2abd813398da29757e5efc6' );
+define ( 'APP_SECRET', 'c4f731db706aadc1445c956789a5c1546ec86f61e5395332c8c1ed65003e724b' );
+define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/testCallback.php' );
 // ※注意：APP_CALLBACKの値は、freeeのアプリケーション一覧に登録されている
 // コールバックURIと同じにする必要があります。
 
@@ -38,6 +38,7 @@ if (! is_null ( $token ['access_token'] )) {
         ];
 
 	// POST処理
+	// ここに渡すパラメータを設定する
 	var_dump ( "POST処理" );
 	$data = '{
 		"company_id" : 809788,
@@ -50,7 +51,7 @@ if (! is_null ( $token ['access_token'] )) {
 		"tax_code" : 108,
 		"item_id" : 127358720,
 		"amount" : 88888,
-		"description" : "株式会社ジョインシップ"
+		"description" : "株式会社ジョインシップのコミット確認"
 		}
 		],
 		"payments" : [
