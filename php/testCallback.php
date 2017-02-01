@@ -39,21 +39,23 @@ if (! is_null ( $token ['access_token'] )) {
 		"type" : "income",
 		"details" : [
 		{
-		"account_item_id" : 127717210,
+		"account_item_id" : 127717090,
 		"tax_code" : 108,
-		"item_id" : 127358720,
+		"item_id" : 127717090,
 		"amount" : 88888,
 		"description" : "株式会社ジョインシップ"
 		}
-		],
-		"payments" : [
-		{
-		"date" : "2017-01-28",
-		"from_walletable_type" : "credit_card",
-		"from_walletable_id" : 150980,
-		"amount" : 66666
-		}
-	 ]
+	// ],
+       ]
+
+	//	"payments" : [
+	//	{
+	//	"date" : "2017-01-28",
+	//	"from_walletable_type" : "credit_card",
+	//	"from_walletable_id" : 150980,
+	//	"amount" : 66666
+	//	}
+	// ]
 	}';
 
 
