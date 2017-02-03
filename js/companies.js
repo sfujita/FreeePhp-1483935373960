@@ -59,7 +59,3 @@ $(document).ready(function() {
 		return false;
 	});
 });
-
-function getToken(){
-	alert("getToken");
-}
