@@ -63,8 +63,8 @@
 
 
 $(document).ready( function() {
-    $("#companies").click(function(){
-        alert('hello world! button 1');
+    $('#companies').click(function(){
+        alert("hello world! button 1");
     });
 
 });
