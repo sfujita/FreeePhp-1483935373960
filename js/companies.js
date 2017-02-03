@@ -62,9 +62,8 @@
 
 
 
-$(document).ready( function() {
+$(function() {
     $('#companies').click(function(){
         alert("hello world! button 1");
     });
-
 });
