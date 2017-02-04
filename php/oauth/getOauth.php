@@ -28,7 +28,27 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	var_dump ( $token );
+	print<<<EOF
+	<!DOCTYPE html>
+		<html>
+		<head>
+		<meta charset="UTF-8">
+		<title>TOKEN取得</title>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/companies.js"></script>
+		</head>
+		<body>
+			<div>TOKEN取得完了</div>
+			<br />
+			<div>TOKENは</div>
+			<br />
+			<div>$token</div>
+
+		</body>
+		</html>
+
+	EOF;
+
 }
 
 // // (3) Token取得後の処理。各種APIの実行
