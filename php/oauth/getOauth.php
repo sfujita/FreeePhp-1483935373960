@@ -1,6 +1,6 @@
 <?php
-define ( 'APP_ID', '7560c9b06f7ddca9703b65c5fd5b02bc7c355ff6ca66c3e5553ad3c4d0e70e2f' );
-define ( 'APP_SECRET', 'c4f731db706aadc1445c956789a5c1546ec86f61e5395332c8c1ed65003e724b' );
+define ( 'APP_ID', 'c83150addac548bc5c8cd3cc41ade1654240af3faf33e324f0ff01115149d2dd' );
+define ( 'APP_SECRET', '469f4594136f8f2e0eccfbf890722af55616c9d355b10545d53e276abe2db18e' );
 define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/oauth/getOauth.php' );
 // ※注意：APP_CALLBACKの値は、freeeのアプリケーション一覧に登録されている
 // コールバックURIと同じにする必要があります。
