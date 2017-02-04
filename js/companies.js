@@ -105,7 +105,11 @@ $(function() {
 				// thisは他のコールバック関数同様にAJAX通信時のオプションを示します。
 
 				// エラーメッセージの表示
-				alert('Error : ' + errorThrown);
+				alert("Error");
+				console.log("XMLHttpRequest : " + XMLHttpRequest);
+				console.log("textStatus : " + textStatus);
+				console.log("errorThrown : " + errorThrown);
+
 			}
 		});
 
