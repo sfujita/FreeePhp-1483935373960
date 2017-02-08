@@ -28,15 +28,15 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	echo<<<EOF
-	<!DOCTYPE html>
-		<html>
-		<head>
-		<meta charset="UTF-8">
-		<title>TOKEN取得</title>
-		</head>
-		<body>
-		</body>
-		</html>
-	EOF;
+// 	echo<<<EOF
+// 	<!DOCTYPE html>
+// 		<html>
+// 		<head>
+// 		<meta charset="UTF-8">
+// 		<title>TOKEN取得</title>
+// 		</head>
+// 		<body>
+// 		</body>
+// 		</html>
+// 	EOF;
 }
