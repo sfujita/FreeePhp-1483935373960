@@ -12,6 +12,7 @@ if (empty ( $_GET )) {
 APP_ID, urlencode ( APP_CALLBACK ) );
 }
 
+// HEY
 // (2) freeeで「許可する」が押されたあとに実行する処理
 // if (! empty ( $_GET ['code'] )) {
 //         $content = [
