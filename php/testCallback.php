@@ -39,13 +39,13 @@ if (! is_null ( $token ['access_token'] )) {
 		"type" : "income",
 		"details" : [
 		{
-		"account_item_id" : 127717210,
+		"account_item_id" : 127717183,
 		"tax_code" : 108,
-		"item_id" : 127358720,
+		"item_id" : 127358721,
 		"amount" : 88888,
-		"description" : "株式会社ジョインシップ2"
+		"description" : "株式会社ジョインシップ3"
 		}
-		],
+	/*	],
 		"payments" : [
 		{
 		"date" : "2017-01-28",
@@ -53,7 +53,9 @@ if (! is_null ( $token ['access_token'] )) {
 		"from_walletable_id" : 150980,
 		"amount" : 66666
 		}
-	 ]
+	*/
+	 ]  
+	
 	}';
 
 

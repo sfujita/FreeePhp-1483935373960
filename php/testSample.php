@@ -5,7 +5,7 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/testCallback.php' )
 
 // (1) いちばん最初の処理。OAuth2の入り口。
 if (empty ( $_GET )) {
-	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">テスト用認証開始2</a></html>',
+	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">テスト用認証開始3</a></html>',
 			 'https://secure.freee.co.jp/oauth/authorize', // 認証用
 APP_ID, urlencode ( APP_CALLBACK ) );
 }
