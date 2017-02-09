@@ -43,7 +43,7 @@ if (! is_null ( $token ['access_token'] )) {
 		"tax_code" : 108,
 		"item_id" : 127358720,
 		"amount" : 88888,
-		"description" : "株式会社ジョインシップ"
+		"description" : "株式会社ジョインシップ2"
 		}
 		],
 		"payments" : [
