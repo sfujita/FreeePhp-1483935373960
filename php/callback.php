@@ -31,6 +31,7 @@ if (! empty ( $_GET ['code'] )) {
 	var_dump ( $token );
 }
 
+
 // (3) Token取得後の処理。各種APIの実行
 if (! is_null ( $token ['access_token'] )) {
         $header = [
