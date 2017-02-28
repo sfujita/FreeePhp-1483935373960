@@ -32,9 +32,12 @@ if (! empty ( $_GET ['code'] )) {
 
 // 	var_dump ( $token );
 }
-?>
+
+echo <<< EOM
 <form action="input.php" method="post">
-	<?php echo $code　?>
+	$code
     <input type="submit" name="add" value="登録" />
     <input type="submit" name="remove" value="削除" />
 </form>
+EOM;
+?>
