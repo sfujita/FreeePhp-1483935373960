@@ -17,7 +17,7 @@
 	function getResult() {
 
 		// ログイン画面へ遷移する
-		window.location.href = "https://secure.freee.co.jp/users/login";
+		location.href = "https://secure.freee.co.jp/users/login";
 	}
 })();
 
