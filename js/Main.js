@@ -10,6 +10,7 @@
 			app.initialize();
 
 			$('#getResult').click(getResult);
+			$('#yahoo').click(goYahoo);
 		});
 	};
 
@@ -18,6 +19,12 @@
 
 		// ログイン画面へ遷移する
 		location.href = "https://secure.freee.co.jp/users/login";
+	}
+	
+	
+	function goYahoo(){
+		
+		// 
 	}
 })();
 

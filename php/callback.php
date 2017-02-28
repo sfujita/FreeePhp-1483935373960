@@ -14,7 +14,7 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
 // (2) freeeで「許可する」が押されたあとに実行する処理
 if (! empty ( $_GET ['code'] )) {
 
-	print $_GET ['code'];
+	$code = $_GET ['code'];
 //         $content = [
 //             "code"          => $_GET['code'],
 //             "grant_type"    => "authorization_code",
@@ -32,7 +32,12 @@ if (! empty ( $_GET ['code'] )) {
 
 // 	var_dump ( $token );
 }
-
+?>
+<form action="input.php" method="post">
+	$code
+    <input type="submit" name="add" value="登録" />
+    <input type="submit" name="remove" value="削除" />
+</form>
 
 // (3) Token取得後の処理。各種APIの実行
 // if (! is_null ( $token ['access_token'] )) {
