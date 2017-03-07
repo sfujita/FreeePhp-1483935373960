@@ -28,7 +28,7 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	var_dump ( $token );
+// 	var_dump ( $token );
 }
 
 // (3) Token取得後の処理。各種APIの実行
@@ -48,6 +48,6 @@ if (! is_null ( $token ['access_token'] )) {
 	$result = json_decode ( $jsonResult, true );
 
 	var_dump ( "取得した情報" );
-	var_dump ( $result );
+	var_dump ( $result["display_name"] );
 	// ↑↑↑↑↑↑↑↑
 }
