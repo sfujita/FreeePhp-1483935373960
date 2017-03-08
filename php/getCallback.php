@@ -64,9 +64,9 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult2 = curl_exec ( $curl2 );
 	$result2 = json_decode ( $jsonResult2, true );
 
-	var_dump ( "取得した勘定科目<br />" );
+	var_dump ( "================== 取得した勘定科目一覧 ==================<br />" );
 	foreach ($result2["account_items"] as $val) {
-		var_dump ( $val["id"]."<br />" );
+		var_dump ( "勘定科目ID : ".$val["id"]."  勘定科目 : ".$val["name"]."<br />" );
 	}
 
 }
