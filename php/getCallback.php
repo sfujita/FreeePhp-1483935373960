@@ -49,13 +49,15 @@ if (! is_null ( $token ['access_token'] )) {
 
 	var_dump ( "取得した会社名<br />" );
 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	var_dump ( "企業コード<br />" );
+	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
 	// 会社コードをパラメータとしたurlを生成する
 	$url = 'https://api.freee.co.jp/api/1/account_items?company_id='.$result ["user"] ["companies"] [0] ["id"];
 
 	$curl2 = curl_init ( $url ); // 勘定科目一覧の取得
 // 	$curl2 = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
-	                                                                                        // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
+	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
 
 	curl_setopt ( $curl2, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curl2, CURLOPT_RETURNTRANSFER, true );
@@ -63,5 +65,8 @@ if (! is_null ( $token ['access_token'] )) {
 	$result2 = json_decode ( $jsonResult2, true );
 
 	var_dump ( "取得した勘定科目<br />" );
-	var_dump ( $result2 );
+	foreach ($result2["account_items"] as $val) {
+		var_dump ( $val."<br />" );
+	}
+
 }
