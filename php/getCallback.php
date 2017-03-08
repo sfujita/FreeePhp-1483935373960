@@ -66,7 +66,7 @@ if (! is_null ( $token ['access_token'] )) {
 
 	var_dump ( "取得した勘定科目<br />" );
 	foreach ($result2["account_items"] as $val) {
-		var_dump ( $val."<br />" );
+		var_dump ( $val["id"]."<br />" );
 	}
 
 }
