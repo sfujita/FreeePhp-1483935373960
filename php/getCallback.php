@@ -47,7 +47,18 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult = curl_exec ( $curl );
 	$result = json_decode ( $jsonResult, true );
 
-	var_dump ( "取得した情報" );
+	var_dump ( "取得した会社名" );
 	var_dump ( $result ["user"]["companies"][0]["display_name"] );
-	// ↑↑↑↑↑↑↑↑
+
+	 	$curl2 = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+	// 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
+
+	curl_setopt ( $curl2, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $curl2, CURLOPT_RETURNTRANSFER, true );
+	$jsonResult2 = curl_exec ( $curl2 );
+	$result2 = json_decode ( $jsonResult2, true );
+
+	var_dump ( "取得した勘定科目" );
+	var_dump ( $result2);
+
 }
