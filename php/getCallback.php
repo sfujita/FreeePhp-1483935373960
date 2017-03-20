@@ -64,14 +64,10 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult2 = curl_exec ( $curl2 );
 	$result2 = json_decode ( $jsonResult2, true );
 
-	var_dump ( "================== 取得した勘定科目一覧 ==================<br />" );
-	foreach ($result2["account_items"] as $val) {
-		var_dump ( "勘定科目ID : ".$val["id"]."  勘定科目 : ".$val["name"]."<br />" );
-	}
-
-	var_dump("</ br>");
+	echo ( "================== 取得した勘定科目一覧 ==================<br />" );
+	echo("</ br>");
 	// プルダウンで項目を表示し、valueはIDで持つ
-	var_dump("<select name=\"kamoku\">");
+	echo("勘定科目 : <select name=\"kamoku\">");
 	foreach ($result2["account_items"] as $val) {
 		echo("<option value=\"");
 		echo($val["id"]);
@@ -80,8 +76,7 @@ if (! is_null ( $token ['access_token'] )) {
 		echo("</option>");
 	}
 	echo("</select></form>");
-	echo("</ br>");
-	echo("金額 : <input type=\"text\" name=\"kingaku\">");
+	echo("</ br>金額 : <input type=\"text\" name=\"kingaku\">");
 
 
 }
