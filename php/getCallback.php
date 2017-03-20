@@ -73,11 +73,11 @@ if (! is_null ( $token ['access_token'] )) {
 	// プルダウンで項目を表示し、valueはIDで持つ
 	var_dump("<select name=\"kamoku\">");
 	foreach ($result2["account_items"] as $val) {
-		var_dump("<option value=\"");
-		var_dump($val["id"]);
-		var_dump("\">");
-		var_dump($val["name"]);
-		var_dump("</option>");
+		echo("<option value=\"");
+		echo($val["id"]);
+		echo("\">");
+		echo($val["name"]);
+		echo("</option>");
 	}
 	echo("</select></form>");
 	echo("</ br>");
