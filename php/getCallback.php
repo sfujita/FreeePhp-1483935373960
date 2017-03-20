@@ -79,9 +79,9 @@ if (! is_null ( $token ['access_token'] )) {
 		var_dump($val["name"]);
 		var_dump("</option>");
 	}
-	var_dump("</select></form>");
-	var_dump("</ br>");
-	var_dump("金額 : <input type=\"text\" name=\"kingaku\">");
+	echo("</select></form>");
+	echo("</ br>");
+	echo("金額 : <input type=\"text\" name=\"kingaku\">");
 
 
 }
