@@ -69,4 +69,19 @@ if (! is_null ( $token ['access_token'] )) {
 		var_dump ( "勘定科目ID : ".$val["id"]."  勘定科目 : ".$val["name"]."<br />" );
 	}
 
+	var_dump("</ br>");
+	// プルダウンで項目を表示し、valueはIDで持つ
+	var_dump("<select name=\"kamoku\">");
+	foreach ($result2["account_items"] as $val) {
+		var_dump("<option value=\"");
+		var_dump($val["id"]);
+		var_dump("\">");
+		var_dump($val["name"]);
+		var_dump("</option>");
+	}
+	var_dump("</select></form>");
+	var_dump("</ br>");
+	var_dump("金額 : <input type=\"text\" name=\"kingaku\">");
+
+
 }
