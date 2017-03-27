@@ -67,7 +67,7 @@ if (! is_null ( $token ['access_token'] )) {
 	echo ( "================== 取得した勘定科目一覧 ==================<br />" );
 	echo("</ br>");
 	// プルダウンで項目を表示し、valueはIDで持つ
-	echo("勘定科目 : <select name=\"kamoku\">");
+	echo("勘定科目 : <form name=\"doFreee\" method=\"POST\" action=\"doFreee.php\"><select name=\"kamoku\">");
 	foreach ($result2["account_items"] as $val) {
 		echo("<option value=\"");
 		echo($val["id"]);
