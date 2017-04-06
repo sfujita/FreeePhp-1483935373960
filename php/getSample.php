@@ -4,7 +4,7 @@ define ( 'APP_SECRET', 'c4f731db706aadc1445c956789a5c1546ec86f61e5395332c8c1ed65
 define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/getCallback.php' );
 // ※注意：APP_CALLBACKの値は、freeeのアプリケーション一覧に登録されている
 // コールバックURIと同じにする必要があります。
-
+header("Content-Type:text/html; charset=UTF-8");
 // (1) いちばん最初の処理。OAuth2の入り口。
 if (empty ( $_GET )) {
 	printf ( '<html><a href="%s?client_id=%s&redirect_uri=%s&response_type=code">認証開始</a></html>',
