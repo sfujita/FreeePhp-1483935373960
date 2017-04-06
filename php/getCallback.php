@@ -79,6 +79,7 @@ if (! is_null ( $token ['access_token'] )) {
 	}
 	echo("</select>");
 	echo("</ br>金額 : <input type=\"text\" name=\"kingaku\">");
+	echo("</ br><input type=\"text\" name=\"token\" value=".$token['access_token'].">");
 	echo("<input type=\"submit\" value=\"送信\" /></form>");
 
 }

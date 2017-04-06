@@ -1,6 +1,6 @@
 <?php
 header("Content-Type:text/html; charset=UTF-8");
-echo "プルダウンは : ".$_POST['kamoku']."金額は ".$_POST['kingaku'];
+echo "プルダウンは : ".$_POST['kamoku']."金額は ".$_POST['kingaku']."tokenは ".$_POST['token'];
 
 // POST処理
 var_dump ( "POST処理" );
