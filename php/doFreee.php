@@ -2,6 +2,8 @@
 header("Content-Type:text/html; charset=UTF-8");
 echo "プルダウンは : ".$_POST['kamoku']."金額は ".$_POST['kingaku']."tokenは ".$_POST['token'];
 
+$token = $_POST['token'];
+
 // POST処理
 var_dump ( "POST処理" );
 $data = '{
@@ -40,12 +42,17 @@ $ch = curl_init ();
 curl_setopt ( $ch, CURLOPT_URL, $url );
 
 $header = [
-		'Authorization: Bearer ' . $token['access_token'],
+		'Authorization: Bearer ' . $token,
 ];
+
+// $header = [
+// 		'Authorization: Bearer ' . $token['access_token'],
+// ];
+
 
 curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 		'Content-Type: application/json',
-		'Authorization: Bearer ' . $token ['access_token']
+		'Authorization: Bearer ' . $token
 ) );
 // curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
 
