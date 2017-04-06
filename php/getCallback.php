@@ -47,6 +47,8 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult = curl_exec ( $curl );
 	$result = json_decode ( $jsonResult, true );
 
+	header("Content-Type:text/html; charset=UTF-8");
+
 	var_dump ( "取得した会社名<br />" );
 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
 	var_dump ( "企業コード<br />" );
