@@ -39,7 +39,9 @@ $options = array (
 $ch = curl_init ();
 curl_setopt ( $ch, CURLOPT_URL, $url );
 
-$header = 'Authorization: Bearer ' . $token['access_token'];
+$header = [
+		'Authorization: Bearer ' . $token['access_token'],
+];
 
 curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 		'Content-Type: application/json',
