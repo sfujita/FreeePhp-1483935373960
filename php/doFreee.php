@@ -32,7 +32,7 @@ $data = '{
 	}';
 
 
-echo "登録情報は".$data;
+echo "登録情報は";
 
 // $data = '{
 // 		"company_id" : 809788,
