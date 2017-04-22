@@ -17,7 +17,7 @@ $data = '{
 		"account_item_id" : 127717210,
 		"tax_code" : 108,
 		"item_id" : 127358720,
-		"amount" : 88888,
+		"amount" : $kingaku,
 		"description" : "株式会社ジョインシップ"
 		}
 		],
@@ -30,6 +30,8 @@ $data = '{
 		}
 	 ]
 	}';
+
+
 // $data = '{
 // 		"company_id" : 809788,
 // 		"issue_date" : "2017-01-19",
@@ -40,7 +42,7 @@ $data = '{
 // 		"account_item_id" : 127717210,
 // 		"tax_code" : 108,
 // 		"item_id" : 127358720,
-// 		"amount" : '.$kingaku.'
+// 		"amount" : 88888,
 // 		"description" : "株式会社ジョインシップ"
 // 		}
 // 		],
@@ -49,11 +51,10 @@ $data = '{
 // 		"date" : "2017-01-28",
 // 		"from_walletable_type" : "credit_card",
 // 		"from_walletable_id" : 150980,
-// 		"amount" : '.$kingaku.'
+// 		"amount" : 66666
 // 		}
 // 	 ]
 // 	}';
-
 
 $url = 'https://api.freee.co.jp/api/1/deals';
 
