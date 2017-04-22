@@ -26,7 +26,7 @@ $data = '{
 		"date" : "2017-01-28",
 		"from_walletable_type" : "credit_card",
 		"from_walletable_id" : 150980,
-		"amount" : 66666
+		"amount" : $kingaku
 		}
 	 ]
 	}';
