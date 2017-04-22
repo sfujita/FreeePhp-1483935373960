@@ -32,6 +32,8 @@ $data = '{
 	}';
 
 
+echo "登録情報は".$data;
+
 // $data = '{
 // 		"company_id" : 809788,
 // 		"issue_date" : "2017-01-19",
