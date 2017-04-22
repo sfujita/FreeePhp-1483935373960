@@ -32,7 +32,9 @@ $data = '{
 	}';
 
 
-echo "登録情報は";
+echo "<br />";
+var_dump($data);
+echo "<br />";
 
 // $data = '{
 // 		"company_id" : 809788,
