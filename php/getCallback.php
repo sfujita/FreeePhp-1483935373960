@@ -82,8 +82,6 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResultZei = curl_exec ( $curlZei );
 	$resultZei = json_decode ( $jsonResultZei, true );
 
-	var_dump($resultZei);
-
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
 	echo ("================== 取得した勘定科目一覧 ==================<br />");
@@ -94,7 +92,7 @@ if (! is_null ( $token ['access_token'] )) {
 		echo ("<option value=\"");
 		echo ($val ["id"]);
 		echo ("\">");
-		echo ($val ["name"]);
+		echo ($val ["name"]." (".$val ["id"].")");
 		echo ("</option>");
 	}
 	echo ("</select>");
@@ -119,6 +117,6 @@ if (! is_null ( $token ['access_token'] )) {
 	echo ("</select>");
 
 	echo ("</ br>金額 : <input type=\"text\" name=\"kingaku\">");
-	echo ("</ br><input type=\"text\" name=\"token\" value=" . $token ['access_token'] . ">");
+	echo ("</ br><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
 	echo ("<input type=\"submit\" value=\"送信\" /></form>");
 }
