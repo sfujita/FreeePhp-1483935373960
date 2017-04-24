@@ -75,12 +75,14 @@ if (! is_null ( $token ['access_token'] )) {
 	// 会社コードをパラメータとしたurlを生成する
 	$urlZei = 'https://api.freee.co.jp/api/1/taxes/codes?company_id=' . $result ["user"] ["companies"] [0] ["id"];
 
-	$curlZei = curl_init ( $url ); // 税区分の取得
+	$curlZei = curl_init ( $urlZei ); // 税区分の取得
 
 	curl_setopt ( $curlZei, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curlZei, CURLOPT_RETURNTRANSFER, true );
 	$jsonResultZei = curl_exec ( $curlZei );
 	$resultZei = json_decode ( $jsonResultZei, true );
+
+	var_dump($resultZei);
 
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
