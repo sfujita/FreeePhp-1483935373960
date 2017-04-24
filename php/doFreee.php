@@ -2,8 +2,10 @@
 header("Content-Type:text/html; charset=UTF-8");
 echo "プルダウンは : ".$_POST['kamoku']."金額は ".$_POST['kingaku']."tokenは ".$_POST['token'];
 
-$token = $_POST['token'];
-$kingaku = $_POST['kingaku'];
+$token = $_POST['token']; // トークン
+$kingaku = $_POST['kingaku']; // 取引金額
+$kamoku = $_POST['kamoku']; // 勘定科目
+$type = $_POST['type']; // 取引タイプ
 
 // POST処理
 var_dump ( "POST処理" );
@@ -11,10 +13,10 @@ $data = "{
 		\"company_id\" : 809788,
 		\"issue_date\" : \"2017-01-19\",
 		\"due_date\" : \"2017-02-28\",
-		\"type\" : \"income\",
+		\"type\" : $type,
 		\"details\" : [
 		{
-		\"account_item_id\" : 127717210,
+		\"account_item_id\" : $kamoku,
 		\"tax_code\" : 108,
 		\"item_id\" : 127358720,
 		\"amount\" : $kingaku,
