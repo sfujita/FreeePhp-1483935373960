@@ -14,7 +14,7 @@ $data = "{
 		\"company_id\" : 809788,
 		\"issue_date\" : \"2017-01-19\",
 		\"due_date\" : \"2017-02-28\",
-		\"type\" : \"income\",
+		\"type\" : \"\"\".$type.\"\"\",
 		\"details\" : [
 		{
 		\"account_item_id\" : 127717210,
