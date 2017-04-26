@@ -28,7 +28,7 @@ $data = "{
 		],
 		\"payments\" : [
 		{
-		\"date\" : \"2017-01-28\",
+		\"date\" : \"2050-05-02\",
 		\"from_walletable_type\" : \"credit_card\",
 		\"from_walletable_id\" : 150980,
 		\"amount\" : $kingaku
