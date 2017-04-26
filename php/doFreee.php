@@ -18,7 +18,7 @@ $data = "{
 		\"details\" : [
 		{
 		\"account_item_id\" : 127717210,
-		\"tax_code\" : 108,
+		\"tax_code\" : $taxCode,
 		\"item_id\" : 127358720,
 		\"amount\" : $kingaku,
 		\"description\" : \"株式会社ジョインシップ\"
