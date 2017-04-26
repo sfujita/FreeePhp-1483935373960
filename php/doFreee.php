@@ -7,13 +7,15 @@ $kingaku = $_POST['kingaku']; // 取引金額
 $kamoku = trim($_POST['kamoku']); // 勘定科目
 $type = trim($_POST['type']); // 取引タイプ
 $taxCode = $_POST['taxCode']; // 税区分コード
+$issue_date = trim($_POST['issue_date']); // 発生日
+$due_date  = trim($_POST['due_date ']); // 支払期日
 
 // POST処理
 var_dump ( "POST処理" );
 $data = "{
 		\"company_id\" : 809788,
-		\"issue_date\" : \"2017-01-19\",
-		\"due_date\" : \"2017-02-28\",
+		\"issue_date\" : \"$issue_date\",
+		\"due_date\" : \"$due_date\",
 		\"type\" : \"$type\",
 		\"details\" : [
 		{

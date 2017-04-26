@@ -97,7 +97,7 @@ if (! is_null ( $token ['access_token'] )) {
 	}
 	echo ("</select>");
 
-	echo ("</ br>");
+	echo ("<br />");
 	echo ("税区分コード");
 	echo ("<select name=\"taxCode\">");
 	foreach ( $resultZei ["taxes"] as $valZei ) {
@@ -109,14 +109,17 @@ if (! is_null ( $token ['access_token'] )) {
 	}
 	echo ("</select>");
 
-	echo ("</ br>");
+	echo ("<br />");
 	echo ("取引タイプ");
 	echo ("<select name=\"type\">");
 	echo ("<option value=\"income \">収入</option>");
 	echo ("<option value=\"expense  \">支出</option>");
 	echo ("</select>");
 
-	echo ("</ br>金額 : <input type=\"text\" name=\"kingaku\">");
-	echo ("</ br><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
+	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" name=\"issue_date \">");
+	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"due_date  \">");
+
+	echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
+	echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
 	echo ("<input type=\"submit\" value=\"送信\" /></form>");
 }
