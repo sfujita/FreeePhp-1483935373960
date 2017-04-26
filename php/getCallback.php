@@ -84,6 +84,8 @@ if (! is_null ( $token ['access_token'] )) {
 
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
+	$today = date("Y-m-d");
+
 	echo ("================== 取得した勘定科目一覧 ==================<br />");
 	echo ("</ br>");
 	// プルダウンで項目を表示し、valueはIDで持つ
@@ -116,8 +118,8 @@ if (! is_null ( $token ['access_token'] )) {
 	echo ("<option value=\"expense  \">支出</option>");
 	echo ("</select>");
 
-	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" name=\"issue_date \">");
-	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"due_date  \">");
+	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" value=$today name=\"issueDate\">");
+	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"dueDate\">");
 
 	echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
 	echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
