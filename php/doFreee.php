@@ -14,11 +14,11 @@ $data = "{
 		\"company_id\" : 809788,
 		\"issue_date\" : \"2017-01-19\",
 		\"due_date\" : \"2017-02-28\",
-		\"type\" : $type,
+		\"type\" : \"income\",
 		\"details\" : [
 		{
-		\"account_item_id\" : $kamoku,
-		\"tax_code\" : $taxCode,
+		\"account_item_id\" : 127717210,
+		\"tax_code\" : 108,
 		\"item_id\" : 127358720,
 		\"amount\" : $kingaku,
 		\"description\" : \"株式会社ジョインシップ\"
