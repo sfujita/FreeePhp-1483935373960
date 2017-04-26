@@ -4,7 +4,7 @@ echo "プルダウンは : ".$_POST['kamoku']."金額は ".$_POST['kingaku']."to
 
 $token = $_POST['token']; // トークン
 $kingaku = $_POST['kingaku']; // 取引金額
-$kamoku = $_POST['kamoku']; // 勘定科目
+$kamoku = trim($_POST['kamoku']); // 勘定科目
 $type = trim($_POST['type']); // 取引タイプ
 $taxCode = $_POST['taxCode']; // 税区分コード
 
@@ -17,7 +17,7 @@ $data = "{
 		\"type\" : \"$type\",
 		\"details\" : [
 		{
-		\"account_item_id\" : 127717210,
+		\"account_item_id\" : \"$kamoku\",
 		\"tax_code\" : $taxCode,
 		\"item_id\" : 127358720,
 		\"amount\" : $kingaku,
