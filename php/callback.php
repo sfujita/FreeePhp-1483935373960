@@ -17,6 +17,7 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/callback.php' );
 if (! empty ( $_GET ['code'] )) {
 
 	$code = $_GET ['code'];
+	$clientId = $_GET['client_id'];
 //         $content = [
 //             "code"          => $_GET['code'],
 //             "grant_type"    => "authorization_code",
@@ -37,7 +38,8 @@ if (! empty ( $_GET ['code'] )) {
 
 echo <<< EOM
 <form action="input.php" method="post">
-	$code
+	$code<br />
+	$clientId<br />
     <input type="submit" name="add" value="登録" />
     <input type="submit" name="remove" value="削除" />
 </form>
