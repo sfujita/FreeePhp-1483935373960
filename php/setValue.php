@@ -17,16 +17,12 @@ if (file_exists ( $filename )) {
 
 }
 
-$param = "これはテスト";
-// ファイルに書き込む
-file_put_contents ( $filename, $param );
 
-// ファイルを読み込み変数に格納
-$content2 = file_get_contents ( $filename );
+text = filter_input(INPUT_GET, 'text');
+$callback = filter_input(INPUT_GET, 'callback');
+$callback = htmlspecialchars(strip_tags($callback));
 
-$content3 = $content.$content2;
+$param = ['text' => $text . ", World!"];
 
-
-
-header("Content-type: text/plain; charset=UTF-8");
-echo $content3;
+header('Content-type: text/javascript; charset=utf-8');
+printf("{$callback}(%s)", json_encode( $param ));
