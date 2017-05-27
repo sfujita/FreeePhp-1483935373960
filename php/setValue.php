@@ -34,7 +34,7 @@ $jsonArray = array(
 		),
 		array(
 				'title'       => 'テストデータ２タイトル',
-				'description' => 'テストデータ２概要',ｘ
+				'description' => 'テストデータ２概要',
 				'url' => 'http://www.google.com'
 		),
 		array(
