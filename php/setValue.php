@@ -26,6 +26,13 @@
 // header('Content-type: text/javascript; charset=utf-8');
 // printf("{$callback}(%s)", json_encode( $param ));
 
+$callback = "jsonCallback";
+if(isset($_GET['callback'])){
+	$callback=$_GET['callback'];
+}
+
+
+
 $jsonArray = array(
 		array(
 				'title'       => 'テストデータ１タイトル',
@@ -56,8 +63,10 @@ $jsonArray = array(
 header('Content-Type: text/javascript; charset=utf-8');
 // echo sprintf("callback(%s)",json_encode($jsonArray));
 
-echo sprintf($_GET["callback"]."(".json_encode($jsonArray).")"); ?
+$json = json_encode($jsonArray);
 
-// echo $_GET["callback"]."(".json_encode($jsonArray).")"; ?
 
+print <<<END
+$callback($json);
+END;
 
