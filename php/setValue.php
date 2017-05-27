@@ -17,8 +17,7 @@ if (file_exists ( $filename )) {
 
 }
 
-
-text = filter_input(INPUT_GET, 'text');
+$text = filter_input(INPUT_GET, 'text');
 $callback = filter_input(INPUT_GET, 'callback');
 $callback = htmlspecialchars(strip_tags($callback));
 
