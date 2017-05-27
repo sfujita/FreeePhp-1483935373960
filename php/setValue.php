@@ -56,6 +56,8 @@ $jsonArray = array(
 header('Content-Type: text/javascript; charset=utf-8');
 // echo sprintf("callback(%s)",json_encode($jsonArray));
 
-echo $_GET["callback"].json_encode($jsonArray); ?
+echo sprintf($_GET["callback"]."(".json_encode($jsonArray).")"); ?
+
+// echo $_GET["callback"]."(".json_encode($jsonArray).")"; ?
 
 
