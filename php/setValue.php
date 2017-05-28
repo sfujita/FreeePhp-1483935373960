@@ -19,8 +19,8 @@ $filename = 'param.txt';
 // $content = "";
 
 
-// // 引数の金額を格納
-// // $param = $_POST['param'];
+// 引数の金額を格納
+$param = $_GET['param'];
 
 // // ファイルの存在をチェックし、存在する場合は削除する
 // if (file_exists ( $filename )) {
@@ -38,7 +38,7 @@ $filename = 'param.txt';
 
 $jsonArray = array(
 		array(
-				'title'       => 'テストデータ１タイトル',
+				'param'       => $param,
 				'description' => 'テストデータ１概要',
 				'url' => 'http://www.google.com'
 		),
