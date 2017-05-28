@@ -1,43 +1,40 @@
 <?php
 
-// ファイルのパスを変数に格納
-// $filename = 'param.txt';
-
-// $content = "";
-
-
-// // 引数の金額を格納
-// // $param = $_POST['param'];
-
-// // ファイルの存在をチェックし、存在する場合は削除する
-// if (file_exists ( $filename )) {
-// 	unlink ( $filename );
-
-// 	$content = $content."ファイルを削除しました";
-
-// }
-
-// $text = filter_input(INPUT_GET, 'text');
-// $callback = filter_input(INPUT_GET, 'callback');
-// $callback = htmlspecialchars(strip_tags($callback));
-
-// $param = ['text' => $text . ", World!"];
-
-// header('Content-type: text/javascript; charset=utf-8');
-// printf("{$callback}(%s)", json_encode( $param ));
-
+// jsonのコールバックを設定する
 $callback = "jsonCallback";
 if(isset($_GET['callback'])){
 	$callback=$_GET['callback'];
 }
 
 
+// ファイルのパスを変数に格納
+$filename = 'param.txt';
+
+// 返却用ステータスを初期化する
+$status = "0";
+
+
+// 引数の金額を格納
+$param = $_GET['param'];
+
+// ファイルの存在をチェックし、存在する場合は削除する
+if (file_exists ( $filename )) {
+	unlink ( $filename );
+
+	// ステータスを"1"：削除に変更する
+	$status = "1";
+
+}
+
+// 引数の金額をテキストファイルに書き込む
+$text = filter_input(INPUT_GET, $param);
+
+
+
 
 $jsonArray = array(
 		array(
-				'title'       => 'テストデータ１タイトル',
-				'description' => 'テストデータ１概要',
-				'url' => 'http://www.google.com'
+				'status'       => $status
 		),
 		array(
 				'title'       => 'テストデータ２タイトル',
@@ -60,13 +57,10 @@ $jsonArray = array(
 				'url' => 'http://www.google.com'
 		),
 );
+
 header('Content-Type: text/javascript; charset=utf-8');
-// echo sprintf("callback(%s)",json_encode($jsonArray));
-
 $json = json_encode($jsonArray);
-
 
 print <<<END
 $callback($json);
 END;
-
