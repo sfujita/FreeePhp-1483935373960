@@ -33,9 +33,9 @@ $text = filter_input(INPUT_GET, $param);
 
 
 $jsonArray = array(
-		array(
-				'status'       => $status
-		),
+// 		array(
+// 				'status'       => $status
+// 		),
 		array(
 				'title'       => 'テストデータ２タイトル',
 				'description' => 'テストデータ２概要',
