@@ -14,20 +14,20 @@ $filename = 'param.txt';
 $status = "0";
 
 
-// 引数の金額を格納
-$param = $_GET['param'];
+// // 引数の金額を格納
+// $param = $_GET['param'];
 
-// ファイルの存在をチェックし、存在する場合は削除する
-if (file_exists ( $filename )) {
-	unlink ( $filename );
+// // ファイルの存在をチェックし、存在する場合は削除する
+// if (file_exists ( $filename )) {
+// 	unlink ( $filename );
 
-	// ステータスを"1"：削除に変更する
-	$status = "1";
+// 	// ステータスを"1"：削除に変更する
+// 	$status = "1";
 
-}
+// }
 
 // 引数の金額をテキストファイルに書き込む
-$text = filter_input(INPUT_GET, $param);
+// $text = filter_input(INPUT_GET, $param);
 
 
 
