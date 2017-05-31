@@ -33,7 +33,8 @@ if (file_exists ( $fileName )) {
 }
 
 // // ファイルに引数の金額をかく
-// file_put_contents($filename,$param)
+file_put_contents( $fileName, $param);
+
 
 $jsonArray = array(
 		array(
