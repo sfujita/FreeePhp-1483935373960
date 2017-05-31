@@ -23,14 +23,14 @@ $fileStatus = "0";
 
 
 
-// // ファイルの存在をチェックし、存在する場合は削除する
-// if (file_exists ( $filename )) {
-// 	unlink ( $filename );
+// ファイルの存在をチェックし、存在する場合は削除する
+if (file_exists ( $fileName )) {
+	unlink ( $fileName );
 
-// 	// 削除&作成
-// 	$fileStatus = "1";
+	// 削除&作成
+	$fileStatus = "1";
 
-// }
+}
 
 // // ファイルに引数の金額をかく
 // file_put_contents($filename,$param)
