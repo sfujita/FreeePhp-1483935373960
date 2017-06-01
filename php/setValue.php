@@ -42,26 +42,26 @@ $jsonArray = array(
 				'fileName' => $fileName,
 				'url' => 'http://www.google.com'
 		),
-		array(
-				'title'       => 'テストデータ２タイトル',
-				'description' => 'テストデータ２概要',
-				'url' => 'http://www.google.com'
-		),
-		array(
-				'title'       => 'テストデータ３タイトル',
-				'description' => 'テストデータ３概要',
-				'url' => 'http://www.google.com'
-		),
-		array(
-				'title'       => 'テストデータ４タイトル',
-				'description' => 'テストデータ４概要',
-				'url' => 'http://www.google.com'
-		),
-		array(
-				'title'       => 'テストデータ５タイトル',
-				'description' => 'テストデータ５概要',
-				'url' => 'http://www.google.com'
-		),
+// 		array(
+// 				'title'       => 'テストデータ２タイトル',
+// 				'description' => 'テストデータ２概要',
+// 				'url' => 'http://www.google.com'
+// 		),
+// 		array(
+// 				'title'       => 'テストデータ３タイトル',
+// 				'description' => 'テストデータ３概要',
+// 				'url' => 'http://www.google.com'
+// 		),
+// 		array(
+// 				'title'       => 'テストデータ４タイトル',
+// 				'description' => 'テストデータ４概要',
+// 				'url' => 'http://www.google.com'
+// 		),
+// 		array(
+// 				'title'       => 'テストデータ５タイトル',
+// 				'description' => 'テストデータ５概要',
+// 				'url' => 'http://www.google.com'
+// 		),
 );
 header('Content-Type: text/javascript; charset=utf-8');
 // echo sprintf("callback(%s)",json_encode($jsonArray));
