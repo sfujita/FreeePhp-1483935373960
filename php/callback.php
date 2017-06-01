@@ -30,31 +30,31 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	var_dump ( $token );
+// 	var_dump ( $token );
 }
 
 // (3) Token取得後の処理。各種APIの実行
-// if (! is_null ( $token ['access_token'] )) {
-//         $header = [
-//             'Authorization: Bearer ' . $token['access_token'],
-//         ];
+if (! is_null ( $token ['access_token'] )) {
+        $header = [
+            'Authorization: Bearer ' . $token['access_token'],
+        ];
 
-// 	// ↓↓↓↓↓↓↓
-// 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-// 	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
-// 	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
+	// ↓↓↓↓↓↓↓
+	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
+	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
 
-// 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
-// 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
-// 	$jsonResult = curl_exec ( $curl );
-// 	$result = json_decode ( $jsonResult, true );
+	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
+	$jsonResult = curl_exec ( $curl );
+	$result = json_decode ( $jsonResult, true );
 
-// 	header ( "Content-Type:text/html; charset=UTF-8" );
+	header ( "Content-Type:text/html; charset=UTF-8" );
 
-// 	var_dump ( "取得した会社名<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-// 	var_dump ( "企業コード<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+	var_dump ( "取得した会社名<br />" );
+	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	var_dump ( "企業コード<br />" );
+	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
 // 	// ※※※※※※※※※※※　勘定科目取得処理開始　※※※※※※※※※※※
 
