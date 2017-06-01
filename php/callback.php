@@ -30,7 +30,7 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	// var_dump ( $token );
+	var_dump ( $token );
 }
 
 // (3) Token取得後の処理。各種APIの実行
