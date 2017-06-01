@@ -56,6 +56,8 @@ if (! is_null ( $token ['access_token'] )) {
 	var_dump ( "企業コード<br />" );
 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
+};
+
 // 	// ※※※※※※※※※※※　勘定科目取得処理開始　※※※※※※※※※※※
 
 // 	// 会社コードをパラメータとしたurlを生成する
