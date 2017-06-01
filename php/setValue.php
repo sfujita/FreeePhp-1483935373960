@@ -38,9 +38,9 @@ file_put_contents( $fileName, $param);
 
 $jsonArray = array(
 		array(
-				'status'       => $fileStatus,
-				'fileName' => $fileName,
-				'url' => 'http://www.google.com'
+				'status'       => $fileStatus
+// 				'fileName' => $fileName,
+// 				'url' => 'http://www.google.com'
 		),
 // 		array(
 // 				'title'       => 'テストデータ２タイトル',
