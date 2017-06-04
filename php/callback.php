@@ -77,64 +77,67 @@ if (! is_null ( $token ['access_token'] )) {
 // 	var_dump ( "企業コード<br />" );
 // 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-// 	//
-// 	// 登録まで行けるかを確認
-// 	//
-// 	$data = '{
-// 			"company_id" : 809788,
-// 			"issue_date" : "2017-01-19",
-// 			"due_date" : "2017-02-28",
-// 			"type" : "income",
-// 			"details" : [
-// 			{
-// 			"account_item_id" : 127717210,
-// 			"tax_code" : 108,
-// 			"item_id" : 127358720,
-// 			"amount" : 88888,
-// 			"description" : "株式会社ジョインシップ"
-// 			}
-// 			],
-// 			"payments" : [
-// 			{
-// 			"date" : "2017-01-28",
-// 			"from_walletable_type" : "credit_card",
-// 			"from_walletable_id" : 150980,
-// 			"amount" : 66666
-// 			}
-// 		 ]
-// 		}';
+	//
+	// 登録まで行けるかを確認
+	//
+	$data = "{
+			\"company_id\" : 809788,
+			\"issue_date\" : 2020-12-31,
+			\"due_date\" : 2020-12-31,
+			\"type\" : income,
+			\"details\" : [
+			{
+			\"account_item_id\" : 127717210,
+			\"tax_code\" : 108,
+			\"item_id\" : 127358720,
+			\"amount\" : $value,
+			\"description\" : 株式会社ジョインシップの登録テスト
+			}
+			],
+			\"payments\" : [
+			{
+			\"date\" : 2020-12-31,
+			\"from_walletable_type\" : credit_card,
+			\"from_walletable_id\" : 150980,
+			\"amount\" : $value
+			}
+		 ]
+		}";
 
-// 	$url = 'https://api.freee.co.jp/api/1/deals';
+	$url = 'https://api.freee.co.jp/api/1/deals';
 
-// 	$options = array (
-// 			CURLOPT_RETURNTRANSFER => true,
-// 			CURLOPT_FOLLOWLOCATION => true,
-// 			CURLOPT_AUTOREFERER => true
-// 	);
-// 	$ch = curl_init ();
-// 	curl_setopt ( $ch, CURLOPT_URL, $url );
+	$options = array (
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_AUTOREFERER => true
+	);
+	$ch = curl_init ();
+	curl_setopt ( $ch, CURLOPT_URL, $url );
 
-// 	$header = [
-// 			'Authorization: Bearer ' . $token,
-// 	];
+	$header = [
+			'Authorization: Bearer ' . $token,
+	];
 
-// 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
-// 			'Content-Type: application/json',
-// 			'Authorization: Bearer ' . $token
-// 	) );
-// 	// curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+			'Content-Type: application/json',
+			'Authorization: Bearer ' . $token
+	) );
+	// curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
 
-// 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
-// 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
-// 	curl_setopt ( $ch, CURLOPT_VERBOSE, true );
-// 	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
-// 	curl_setopt ( $ch, CURLOPT_POST, true );
-// 	curl_setopt_array ( $ch, $options );
-// 	$result = curl_exec ( $ch );
-// 	curl_close ( $ch );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
+	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
+	curl_setopt ( $ch, CURLOPT_VERBOSE, true );
+	curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
+	curl_setopt ( $ch, CURLOPT_POST, true );
+	curl_setopt_array ( $ch, $options );
+	$result = curl_exec ( $ch );
+	curl_close ( $ch );
 
-// 	var_dump ( "取得した情報" );
-// 	var_dump ( $result );
+	var_dump ( "取得した情報" );
+	var_dump ( $result );
+
+
+
 }
 ;
 
