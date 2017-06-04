@@ -85,22 +85,22 @@ if (! is_null ( $token ['access_token'] )) {
 	//
 	$data = "{
 			\"company_id\" : 809788,
-			\"issue_date\" : 2020-12-31,
-			\"due_date\" : 2020-12-31,
-			\"type\" : income,
+			\"issue_date\" : \"2020-12-31\",
+			\"due_date\" : \"2020-12-31\",
+			\"type\" : \"income\",
 			\"details\" : [
 			{
-			\"account_item_id\" : 127717210,
+			\"account_item_id\" : \"127717210\",
 			\"tax_code\" : 108,
 			\"item_id\" : 127358720,
 			\"amount\" : $value,
-			\"description\" : 株式会社ジョインシップの登録テスト
+			\"description\" : \"株式会社ジョインシップの登録テスト\"
 			}
 			],
 			\"payments\" : [
 			{
-			\"date\" : 2020-12-31,
-			\"from_walletable_type\" : credit_card,
+			\"date\" : \"2020-12-31\",
+			\"from_walletable_type\" : \"credit_card\",
 			\"from_walletable_id\" : 150980,
 			\"amount\" : $value
 			}
