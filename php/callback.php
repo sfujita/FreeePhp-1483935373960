@@ -114,9 +114,9 @@ if (! is_null ( $token ['access_token'] )) {
 	$ch = curl_init ();
 	curl_setopt ( $ch, CURLOPT_URL, $url );
 
-	$header = [
-			'Authorization: Bearer ' . $token,
-	];
+// 	$header = [
+// 			'Authorization: Bearer ' . $token,
+// 	];
 
 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json',
