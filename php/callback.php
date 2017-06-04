@@ -58,25 +58,25 @@ if (! is_null ( $token ['access_token'] )) {
 	// ファイルをクローズする
 	fclose ( $fp );
 
-	var_dump ($value);
-	var_dump ($token);
+	var_dump ( $value );
+	var_dump ( $token );
 
-// 	// ↓↓↓↓↓↓↓
-// 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-// 	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
-// 	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
+	// // ↓↓↓↓↓↓↓
+	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
+	// // $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
+	// // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
 
-// 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
-// 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
-// 	$jsonResult = curl_exec ( $curl );
-// 	$result = json_decode ( $jsonResult, true );
+	// curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
+	// curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
+	// $jsonResult = curl_exec ( $curl );
+	// $result = json_decode ( $jsonResult, true );
 
-// 	header ( "Content-Type:text/html; charset=UTF-8" );
+	// header ( "Content-Type:text/html; charset=UTF-8" );
 
-// 	var_dump ( "取得した会社名<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-// 	var_dump ( "企業コード<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+	// var_dump ( "取得した会社名<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	// var_dump ( "企業コード<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
 	//
 	// 登録まで行けるかを確認
@@ -115,15 +115,19 @@ if (! is_null ( $token ['access_token'] )) {
 	$ch = curl_init ();
 	curl_setopt ( $ch, CURLOPT_URL, $url );
 
-// 	$header = [
-// 			'Authorization: Bearer ' . $token,
-// 	];
+	// $header = [
+	// 'Authorization: Bearer ' . $token,
+	// ];
+
+	// curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+	// 'Content-Type: application/json',
+	// 'Authorization: Bearer ' . $token
+	// ));
 
 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json',
-			'Authorization: Bearer ' . $token
+			'Authorization: Bearer ' . $token ['access_token']
 	) );
-	// curl_setopt ( $ch, CURLOPT_HTTPHEADER, $header );
 
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, false );
@@ -136,9 +140,6 @@ if (! is_null ( $token ['access_token'] )) {
 
 	var_dump ( "取得した情報" );
 	var_dump ( $result );
-
-
-
 }
 ;
 
