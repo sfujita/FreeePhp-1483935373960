@@ -41,6 +41,8 @@ if (! is_null ( $token ['access_token'] )) {
 
 	// ファイルのパスを変数に格納
 	$fileName = './param.txt';
+	$access_token = $token ['access_token'];
+
 
 	// ファイルを読み込み専用でオープンする
 	$fp = fopen ( $fileName, 'r' );
@@ -59,7 +61,7 @@ if (! is_null ( $token ['access_token'] )) {
 	fclose ( $fp );
 
 	var_dump ( $value );
-	var_dump ( $token );
+	var_dump ( $access_token );
 
 	// // ↓↓↓↓↓↓↓
 	// $curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
@@ -126,7 +128,7 @@ if (! is_null ( $token ['access_token'] )) {
 
 	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
 			'Content-Type: application/json',
-			'Authorization: Bearer ' . $token ['access_token']
+			'Authorization: Bearer ' . $access_token
 	) );
 
 	curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, false );
