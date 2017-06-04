@@ -59,6 +59,7 @@ if (! is_null ( $token ['access_token'] )) {
 	fclose ( $fp );
 
 	var_dump ($value);
+	var_dump ($token);
 
 // 	// ↓↓↓↓↓↓↓
 // 	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
