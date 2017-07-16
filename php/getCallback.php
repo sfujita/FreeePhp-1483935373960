@@ -11,6 +11,8 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/getCallback.php' );
 $result = null;
 // 勘定科目
 $kanjyoKamoku = null;
+// 税区分
+$zeiKubun = null;
 
 // ログイン後にトークンを取得する
 if (! empty ( $_GET ['code'] )) {
@@ -79,8 +81,8 @@ if (! is_null ( $token ['access_token'] )) {
 
 	curl_setopt ( $curlZei, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curlZei, CURLOPT_RETURNTRANSFER, true );
-	$jsonResultZei = curl_exec ( $curlZei );
-	$resultZei = json_decode ( $jsonResultZei, true );
+	$zeiJsonResult = curl_exec ( $curlZei );
+	$GLOBALS ['zeiKubun'] = json_decode ( $zeiJsonResult, true );
 
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
@@ -148,6 +150,8 @@ $html = <<<EOT
     <p>{$result["user"] ["companies"] [0] ["id"]}</p>
 	<h2>勘定科目</h2>
 	{$kanjyoKamoku}
+	<h2>税区分</h2>
+	{$zeiKubun}
 </body>
 </html>
 EOT;
