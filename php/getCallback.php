@@ -143,7 +143,7 @@ $html = <<<EOT
 </head>
 <body>
     <h2>成功したかな</h2>
-    <p>$result</p>
+    <p>{$result["user"] ["companies"] [0] ["display_name"]}</p>
 </body>
 </html>
 EOT;
