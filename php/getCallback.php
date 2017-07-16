@@ -9,6 +9,8 @@ define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/getCallback.php' );
  */
 // ログイン情報
 $result = null;
+// 勘定科目
+$kanjyoKamoku = null;
 
 // ログイン後にトークンを取得する
 if (! empty ( $_GET ['code'] )) {
@@ -53,7 +55,7 @@ if (! is_null ( $token ['access_token'] )) {
 
 	/******************　勘定科目取得処理開始　******************/
 
-	// 企業コードをパラメータとしたurlを生成する
+	// 企業コードをパラメータとした勘定科目取得用urlを生成する
 	$url = 'https://api.freee.co.jp/api/1/account_items?company_id=' . $GLOBALS ['result']["user"] ["companies"] [0] ["id"];
 
 	$kamokuCurl = curl_init ( $url ); // 勘定科目一覧の取得
@@ -63,14 +65,15 @@ if (! is_null ( $token ['access_token'] )) {
 	curl_setopt ( $kamokuCurl, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $kamokuCurl, CURLOPT_RETURNTRANSFER, true );
 	$kamokuJsonResult = curl_exec ( $kamokuCurl );
-	$result2 = json_decode ( $kamokuJsonResult, true );
+	$GLOBALS ['kanjyoKamoku'] = json_decode ( $kamokuJsonResult, true );
+
 
 	// ※※※※※※※※※※※　勘定科目取得処理終了　※※※※※※※※※※※
 
 	// ※※※※※※※※※※※　税区分コード取得処理開始　※※※※※※※※※※※
 
 	// 会社コードをパラメータとしたurlを生成する
-	$urlZei = 'https://api.freee.co.jp/api/1/taxes/codes?company_id=' . $result ["user"] ["companies"] [0] ["id"];
+	$urlZei = 'https://api.freee.co.jp/api/1/taxes/codes?company_id=' . $GLOBALS ['result']["user"] ["companies"] [0] ["id"];
 
 	$curlZei = curl_init ( $urlZei ); // 税区分の取得
 
@@ -143,7 +146,8 @@ $html = <<<EOT
     <p>{$result["user"] ["companies"] [0] ["display_name"]}</p>
   　　　<h2>登録企業コード</h2>
     <p>{$result["user"] ["companies"] [0] ["id"]}</p>
-
+	<h2>勘定科目</h2>
+	{$kanjyoKamoku}
 </body>
 </html>
 EOT;
