@@ -57,7 +57,8 @@ if (! is_null ( $token ['access_token'] )) {
 					<p>ヒアドキュメントで、<br>
 					テキスト出力も自由自在！！</p>
 					<br />
-					{$result ["user"] ["companies"] [0] ["display_name"]}
+					{$result}
+					<br />
 				</body>
 			</html>
 
