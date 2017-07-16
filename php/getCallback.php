@@ -57,7 +57,6 @@ if (! is_null ( $token ['access_token'] )) {
 					<p>ヒアドキュメントで、<br>
 					テキスト出力も自由自在！！</p>
 					<br />
-					{$result}
 					<br />
 				</body>
 			</html>
