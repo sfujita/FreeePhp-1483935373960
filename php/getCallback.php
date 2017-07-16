@@ -1,11 +1,16 @@
 <?php
+// 定数：freeeのアプリケーション一覧に登録している値
 define ( 'APP_ID', '7560c9b06f7ddca9703b65c5fd5b02bc7c355ff6ca66c3e5553ad3c4d0e70e2f' );
 define ( 'APP_SECRET', 'c4f731db706aadc1445c956789a5c1546ec86f61e5395332c8c1ed65003e724b' );
 define ( 'APP_CALLBACK', 'https://freeephp.mybluemix.net/php/getCallback.php' );
-// ※注意：APP_CALLBACKの値は、freeeのアプリケーション一覧に登録されている
-// コールバックURIと同じにする必要があります。
 
-// (2) freeeで「許可する」が押されたあとに実行する処理
+/**
+ * グローバル変数
+ */
+// ログイン情報
+$result = null;
+
+// ログイン後にトークンを取得する
 if (! empty ( $_GET ['code'] )) {
         $content = [
             "code"          => $_GET['code'],
@@ -22,24 +27,24 @@ if (! empty ( $_GET ['code'] )) {
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
 
-	// var_dump ( $token );
 }
 
-// (3) Token取得後の処理。各種APIの実行
+// 取得したトークンからログイン情報を元に、登録用の各情報を取得する
 if (! is_null ( $token ['access_token'] )) {
         $header = [
             'Authorization: Bearer ' . $token['access_token'],
         ];
 
-	// ↓↓↓↓↓↓↓
-	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' ); // 自分の情報（org）
-	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
-	                                                                               // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
+	// ログイン情報を取得する
+	$curl = curl_init ( 'https://api.freee.co.jp/api/1/users/me?companies=true' );
 
 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
 	$jsonResult = curl_exec ( $curl );
-	$result = json_decode ( $jsonResult, true );
+// 	$result = json_decode ( $jsonResult, true );
+	// グローバル変数に格納
+	$GLOBALS['result'] = json_decode ( $jsonResult, true );
+
 
 // 	header ( "Content-Type:text/html; charset=UTF-8" );
 
@@ -134,11 +139,11 @@ if (! is_null ( $token ['access_token'] )) {
 $html = <<<EOT
 <html>
 <head><title>確認画面</title>
-<script type="text/javascript" charset="UTF-8" src="//cache1.value-domain.com/xrea_header.js" async="async"></script>
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
 </head>
 <body>
     <h2>成功したかな</h2>
-    うまく出た？
+    <p>$result</p>
 </body>
 </html>
 EOT;
