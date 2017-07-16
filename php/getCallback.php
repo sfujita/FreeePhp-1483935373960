@@ -43,10 +43,10 @@ if (! is_null ( $token ['access_token'] )) {
 
 	header ( "Content-Type:text/html; charset=UTF-8" );
 
-	var_dump ( "取得した会社名<br />" );
-	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-	var_dump ( "企業コード<br />" );
-	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+// 	var_dump ( "取得した会社名<br />" );
+// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+// 	var_dump ( "企業コード<br />" );
+// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
 	// ※※※※※※※※※※※　勘定科目取得処理開始　※※※※※※※※※※※
 
@@ -79,6 +79,16 @@ if (! is_null ( $token ['access_token'] )) {
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
 	$today = date("Y-m-d");
+
+	// 	var_dump ( "取得した会社名<br />" );
+	// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	// 	var_dump ( "企業コード<br />" );
+	// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+
+	echo ("================== 取得した会社名 ==================<br />");
+	echo ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	echo ( "企業コード<br />" );
+	echo ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
 	echo ("================== 取得した勘定科目一覧 ==================<br />");
 	echo ("</ br>");
