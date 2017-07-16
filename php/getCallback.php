@@ -148,9 +148,9 @@ $html = <<<EOT
     <p>{$result["user"] ["companies"] [0] ["display_name"]}</p>
   　　　<h2>登録企業コード</h2>
     <p>{$result["user"] ["companies"] [0] ["id"]}</p>
-	<h2>勘定科目</h2>
+	<h2>勘定科目</h2><form name="doFreee" method="POST" action="doFreee.php"><select name="kamoku"></select>
 	{$kanjyoKamoku}
-	<h2>税区分</h2>
+	<h2>税区分</h2>ｘ
 	{$zeiKubun}
 </body>
 </html>
