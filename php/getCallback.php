@@ -26,7 +26,6 @@ if (! empty ( $_GET ['code'] )) {
 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
 	$jsonToken = curl_exec ( $curl );
 	$token = json_decode ( $jsonToken, true );
-
 }
 
 // 取得したトークンからログイン情報を元に、登録用の各情報を取得する
@@ -41,31 +40,30 @@ if (! is_null ( $token ['access_token'] )) {
 	curl_setopt ( $curl, CURLOPT_HTTPHEADER, $header );
 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
 	$jsonResult = curl_exec ( $curl );
-// 	$result = json_decode ( $jsonResult, true );
+	// $result = json_decode ( $jsonResult, true );
 	// グローバル変数に格納
-	$GLOBALS['result'] = json_decode ( $jsonResult, true );
+	$GLOBALS ['result'] = json_decode ( $jsonResult, true );
 
+	// header ( "Content-Type:text/html; charset=UTF-8" );
 
-// 	header ( "Content-Type:text/html; charset=UTF-8" );
+	// var_dump ( "取得した会社名<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	// var_dump ( "企業コード<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-// 	var_dump ( "取得した会社名<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-// 	var_dump ( "企業コード<br />" );
-// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+	/******************　勘定科目取得処理開始　******************/
 
-	// ※※※※※※※※※※※　勘定科目取得処理開始　※※※※※※※※※※※
+	// 企業コードをパラメータとしたurlを生成する
+	$url = 'https://api.freee.co.jp/api/1/account_items?company_id=' . $GLOBALS ['result']["user"] ["companies"] [0] ["id"];
 
-	// 会社コードをパラメータとしたurlを生成する
-	$url = 'https://api.freee.co.jp/api/1/account_items?company_id=' . $result ["user"] ["companies"] [0] ["id"];
-
-	$curl2 = curl_init ( $url ); // 勘定科目一覧の取得
+	$kamokuCurl = curl_init ( $url ); // 勘定科目一覧の取得
 	                             // $curl2 = curl_init ( 'https://api.freee.co.jp/api/1/account_items?company_id=809788' ); // 勘定科目一覧の取得
 	                             // $curl = curl_init ( 'https://api.freee.co.jp/api/1/deals?company_id=809788' ); // 取引（収入／支出）一覧の取得
 
-	curl_setopt ( $curl2, CURLOPT_HTTPHEADER, $header );
-	curl_setopt ( $curl2, CURLOPT_RETURNTRANSFER, true );
-	$jsonResult2 = curl_exec ( $curl2 );
-	$result2 = json_decode ( $jsonResult2, true );
+	curl_setopt ( $kamokuCurl, CURLOPT_HTTPHEADER, $header );
+	curl_setopt ( $kamokuCurl, CURLOPT_RETURNTRANSFER, true );
+	$kamokuJsonResult = curl_exec ( $kamokuCurl );
+	$result2 = json_decode ( $kamokuJsonResult, true );
 
 	// ※※※※※※※※※※※　勘定科目取得処理終了　※※※※※※※※※※※
 
@@ -83,58 +81,57 @@ if (! is_null ( $token ['access_token'] )) {
 
 	// ※※※※※※※※※※※　税区分コード取得処理終了　※※※※※※※※※※※
 
-	$today = date("Y-m-d");
+	$today = date ( "Y-m-d" );
 
-	// 	var_dump ( "取得した会社名<br />" );
-	// 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-	// 	var_dump ( "企業コード<br />" );
-	// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+	// var_dump ( "取得した会社名<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	// var_dump ( "企業コード<br />" );
+	// var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-// 	echo ("================== 取得した会社名 ==================<br />");
-// 	echo ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-// 	echo ( "企業コード<br />" );
-// 	echo ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+	// echo ("================== 取得した会社名 ==================<br />");
+	// echo ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+	// echo ( "企業コード<br />" );
+	// echo ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-// 	echo ("================== 取得した勘定科目一覧 ==================<br />");
-// 	echo ("</ br>");
-// 	// プルダウンで項目を表示し、valueはIDで持つ
-// 	echo ("勘定科目 : <form name=\"doFreee\" method=\"POST\" action=\"doFreee.php\"><select name=\"kamoku\">");
-// 	foreach ( $result2 ["account_items"] as $val ) {
-// 		echo ("<option value=\"");
-// 		echo ($val ["id"]);
-// 		echo ("\">");
-// 		echo ($val ["name"]." (".$val ["id"].")");
-// 		echo ("</option>");
-// 	}
-// 	echo ("</select>");
+	// echo ("================== 取得した勘定科目一覧 ==================<br />");
+	// echo ("</ br>");
+	// // プルダウンで項目を表示し、valueはIDで持つ
+	// echo ("勘定科目 : <form name=\"doFreee\" method=\"POST\" action=\"doFreee.php\"><select name=\"kamoku\">");
+	// foreach ( $result2 ["account_items"] as $val ) {
+	// echo ("<option value=\"");
+	// echo ($val ["id"]);
+	// echo ("\">");
+	// echo ($val ["name"]." (".$val ["id"].")");
+	// echo ("</option>");
+	// }
+	// echo ("</select>");
 
-// 	echo ("<br />");
-// 	echo ("税区分コード");
-// 	echo ("<select name=\"taxCode\">");
-// 	foreach ( $resultZei ["taxes"] as $valZei ) {
-// 		echo ("<option value=\"");
-// 		echo ($valZei ["code"]);
-// 		echo ("\">");
-// 		echo ($valZei ["name_ja"]);
-// 		echo ("</option>");
-// 	}
-// 	echo ("</select>");
+	// echo ("<br />");
+	// echo ("税区分コード");
+	// echo ("<select name=\"taxCode\">");
+	// foreach ( $resultZei ["taxes"] as $valZei ) {
+	// echo ("<option value=\"");
+	// echo ($valZei ["code"]);
+	// echo ("\">");
+	// echo ($valZei ["name_ja"]);
+	// echo ("</option>");
+	// }
+	// echo ("</select>");
 
-// 	echo ("<br />");
-// 	echo ("取引タイプ");
-// 	echo ("<select name=\"type\">");
-// 	echo ("<option value=\"income \">収入</option>");
-// 	echo ("<option value=\"expense  \">支出</option>");
-// 	echo ("</select>");
+	// echo ("<br />");
+	// echo ("取引タイプ");
+	// echo ("<select name=\"type\">");
+	// echo ("<option value=\"income \">収入</option>");
+	// echo ("<option value=\"expense \">支出</option>");
+	// echo ("</select>");
 
-// 	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" value=$today name=\"issueDate\">");
-// 	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"dueDate\">");
+	// echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" value=$today name=\"issueDate\">");
+	// echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"dueDate\">");
 
-// 	echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
-// 	echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
-// 	echo ("<input type=\"submit\" value=\"送信\" /></form>");
+	// echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
+	// echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
+	// echo ("<input type=\"submit\" value=\"送信\" /></form>");
 }
-
 
 $html = <<<EOT
 <html>
@@ -142,12 +139,15 @@ $html = <<<EOT
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
 </head>
 <body>
-    <h2>成功したかな</h2>
+    <h2>登録会社名</h2>
     <p>{$result["user"] ["companies"] [0] ["display_name"]}</p>
+  　　　<h2>登録企業コード</h2>
+    <p>{$result["user"] ["companies"] [0] ["id"]}</p>
+
 </body>
 </html>
 EOT;
 
 header ( "Content-Type:text/html; charset=UTF-8" );
 
-echo ( $html );
+echo ($html);
