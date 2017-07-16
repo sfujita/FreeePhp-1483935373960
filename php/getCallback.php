@@ -41,7 +41,7 @@ if (! is_null ( $token ['access_token'] )) {
 	$jsonResult = curl_exec ( $curl );
 	$result = json_decode ( $jsonResult, true );
 
-	header ( "Content-Type:text/html; charset=UTF-8" );
+// 	header ( "Content-Type:text/html; charset=UTF-8" );
 
 // 	var_dump ( "取得した会社名<br />" );
 // 	var_dump ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
@@ -131,4 +131,18 @@ if (! is_null ( $token ['access_token'] )) {
 }
 
 
-echo ("テスト");
+$html = <<<EOT
+<html>
+<head><title>確認画面</title>
+<script type="text/javascript" charset="UTF-8" src="//cache1.value-domain.com/xrea_header.js" async="async"></script>
+</head>
+<body>
+    <h2>成功したかな</h2>
+    うまく出た？
+</body>
+</html>
+EOT;
+
+header ( "Content-Type:text/html; charset=UTF-8" );
+
+echo ( $html );
