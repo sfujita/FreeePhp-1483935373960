@@ -85,47 +85,50 @@ if (! is_null ( $token ['access_token'] )) {
 	// 	var_dump ( "企業コード<br />" );
 	// 	var_dump ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-	echo ("================== 取得した会社名 ==================<br />");
-	echo ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
-	echo ( "企業コード<br />" );
-	echo ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
+// 	echo ("================== 取得した会社名 ==================<br />");
+// 	echo ( $result ["user"] ["companies"] [0] ["display_name"] . "<br />" );
+// 	echo ( "企業コード<br />" );
+// 	echo ( $result ["user"] ["companies"] [0] ["id"] . "<br />" );
 
-	echo ("================== 取得した勘定科目一覧 ==================<br />");
-	echo ("</ br>");
-	// プルダウンで項目を表示し、valueはIDで持つ
-	echo ("勘定科目 : <form name=\"doFreee\" method=\"POST\" action=\"doFreee.php\"><select name=\"kamoku\">");
-	foreach ( $result2 ["account_items"] as $val ) {
-		echo ("<option value=\"");
-		echo ($val ["id"]);
-		echo ("\">");
-		echo ($val ["name"]." (".$val ["id"].")");
-		echo ("</option>");
-	}
-	echo ("</select>");
+// 	echo ("================== 取得した勘定科目一覧 ==================<br />");
+// 	echo ("</ br>");
+// 	// プルダウンで項目を表示し、valueはIDで持つ
+// 	echo ("勘定科目 : <form name=\"doFreee\" method=\"POST\" action=\"doFreee.php\"><select name=\"kamoku\">");
+// 	foreach ( $result2 ["account_items"] as $val ) {
+// 		echo ("<option value=\"");
+// 		echo ($val ["id"]);
+// 		echo ("\">");
+// 		echo ($val ["name"]." (".$val ["id"].")");
+// 		echo ("</option>");
+// 	}
+// 	echo ("</select>");
 
-	echo ("<br />");
-	echo ("税区分コード");
-	echo ("<select name=\"taxCode\">");
-	foreach ( $resultZei ["taxes"] as $valZei ) {
-		echo ("<option value=\"");
-		echo ($valZei ["code"]);
-		echo ("\">");
-		echo ($valZei ["name_ja"]);
-		echo ("</option>");
-	}
-	echo ("</select>");
+// 	echo ("<br />");
+// 	echo ("税区分コード");
+// 	echo ("<select name=\"taxCode\">");
+// 	foreach ( $resultZei ["taxes"] as $valZei ) {
+// 		echo ("<option value=\"");
+// 		echo ($valZei ["code"]);
+// 		echo ("\">");
+// 		echo ($valZei ["name_ja"]);
+// 		echo ("</option>");
+// 	}
+// 	echo ("</select>");
 
-	echo ("<br />");
-	echo ("取引タイプ");
-	echo ("<select name=\"type\">");
-	echo ("<option value=\"income \">収入</option>");
-	echo ("<option value=\"expense  \">支出</option>");
-	echo ("</select>");
+// 	echo ("<br />");
+// 	echo ("取引タイプ");
+// 	echo ("<select name=\"type\">");
+// 	echo ("<option value=\"income \">収入</option>");
+// 	echo ("<option value=\"expense  \">支出</option>");
+// 	echo ("</select>");
 
-	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" value=$today name=\"issueDate\">");
-	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"dueDate\">");
+// 	echo("<br />発生日 (yyyy-mm-dd) : <input type=\"text\" value=$today name=\"issueDate\">");
+// 	echo("<br />支払期日 (yyyy-mm-dd)※省略可 : <input type=\"text\" name=\"dueDate\">");
 
-	echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
-	echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
-	echo ("<input type=\"submit\" value=\"送信\" /></form>");
+// 	echo ("<br />金額 : <input type=\"text\" name=\"kingaku\">");
+// 	echo ("<br /><input type=\"hidden\" name=\"token\" value=" . $token ['access_token'] . ">");
+// 	echo ("<input type=\"submit\" value=\"送信\" /></form>");
 }
+
+
+echo ("テスト");
