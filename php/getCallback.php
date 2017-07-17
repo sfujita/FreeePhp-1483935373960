@@ -185,7 +185,7 @@ $html .= <<<EOT
 		<input type="text" value="" name="dueDate">
 	<h2>金額</h2>
 		<input type="text" name="kingaku">
-		<input type="text" name="token" value={$GLOBALS ['token'] ['access_token']}>
+		<input type="hidden" name="token" value={$GLOBALS ['token'] ['access_token']}>
 		<input type="submit" value="送信" />
 	</form>
 </body>
