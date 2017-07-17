@@ -13,6 +13,8 @@ $result = null;
 $kanjyoKamoku = null;
 // 税区分
 $zeiKubun = null;
+// アクセストークン
+$token = null;
 
 // ログイン後にトークンを取得する
 if (! empty ( $_GET ['code'] )) {
@@ -29,13 +31,13 @@ if (! empty ( $_GET ['code'] )) {
 	curl_setopt ( $curl, CURLOPT_POSTFIELDS, http_build_query ( $content ) );
 	curl_setopt ( $curl, CURLOPT_RETURNTRANSFER, true );
 	$jsonToken = curl_exec ( $curl );
-	$token = json_decode ( $jsonToken, true );
+	$GLOBALS ['token'] = json_decode ( $jsonToken, true );
 }
 
 // 取得したトークンからログイン情報を元に、登録用の各情報を取得する
-if (! is_null ( $token ['access_token'] )) {
+if (! is_null ( $GLOBALS ['token'] ['access_token'] )) {
         $header = [
-            'Authorization: Bearer ' . $token['access_token'],
+            'Authorization: Bearer ' . $GLOBALS ['token']['access_token'],
         ];
 
 	// ログイン情報を取得する
@@ -160,7 +162,7 @@ foreach ( $GLOBALS ['kanjyoKamoku']["account_items"] as $val ) {
 
 $html .= <<<EOT
 	</select>
-		<h2>税区分</h2>
+	<h2>税区分</h2>
 	<select name="taxCode">
 EOT;
 
@@ -169,8 +171,23 @@ foreach ( $GLOBALS ['zeiKubun']["taxes"] as $valZei ) {
 	$html .= "<option value={$valZei ['code']}>{$valZei ['name_ja']}</option>";
 }
 
+
 $html .= <<<EOT
-</select>
+	</select>
+	<h2>取引タイプ</h2>
+	<select name="type">
+		<option value="income">収入</option>
+		<option value="expense">支出</option>
+	</select>
+	<h2>発生日(yyyy-mm-dd)</h2>
+		<input type="text" value="" name="issueDate">
+	<h2>支払期日(yyyy-mm-dd)※省略可</h2>
+		<input type="text" value="" name="dueDate">
+	<h2>金額</h2>
+		<input type="text" name="kingaku">
+		<input type="text" name="token" value={$GLOBALS ['token'] ['access_token']}>
+		<input type="submit" value="送信" />
+	</form>
 </body>
 </html>
 EOT;
