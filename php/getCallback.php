@@ -149,19 +149,28 @@ $html = <<<EOT
     <p>{$result["user"] ["companies"] [0] ["display_name"]}</p>
   　　　<h2>登録企業コード</h2>
     <p>{$result["user"] ["companies"] [0] ["id"]}</p>
-	<h2>勘定科目</h2><form name="doFreee" method="POST" action="doFreee.php"><select name="kamoku">
+	<h2>勘定科目</h2><form name="doFreee" method="POST" action="doFreee.php">
+    <select name="kamoku">
 EOT;
 
+// 勘定科目プルダウンを作成
 foreach ( $GLOBALS ['kanjyoKamoku']["account_items"] as $val ) {
 	$html .= "<option value={$val ['id']}>{$val ['name']}</option>";
 }
 
 $html .= <<<EOT
-
 	</select>
-		<h2>追加版HTML</h2>
 		<h2>税区分</h2>
-	{$zeiKubun}
+	<select name="taxCode">
+EOT;
+
+// 税区分プルダウンを作成
+foreach ( $GLOBALS ['$zeiKubun']["taxes"] as $valZei ) {
+	$html .= "<option value={$valZei ['code']}>{$valZei ['name_ja']}</option>";
+}
+
+$html .= <<<EOT
+</select>
 </body>
 </html>
 EOT;
