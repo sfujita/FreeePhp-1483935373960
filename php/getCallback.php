@@ -165,7 +165,7 @@ $html .= <<<EOT
 EOT;
 
 // 税区分プルダウンを作成
-foreach ( $GLOBALS ['$zeiKubun']["taxes"] as $valZei ) {
+foreach ( $GLOBALS ['zeiKubun']["taxes"] as $valZei ) {
 	$html .= "<option value={$valZei ['code']}>{$valZei ['name_ja']}</option>";
 }
 
