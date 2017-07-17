@@ -152,6 +152,10 @@ $html = <<<EOT
 	<h2>勘定科目</h2><form name="doFreee" method="POST" action="doFreee.php"><select name="kamoku">
 EOT;
 
+foreach ( $result2 ["account_items"] as $val ) {
+	$html .= "<option value={$val ['id']}>{$val ['name']}</option>";
+}
+
 $html .= <<<EOT
 
 	</select>
