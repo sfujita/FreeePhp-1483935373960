@@ -145,6 +145,8 @@ $html = <<<EOT
 <html>
 <head><title>確認画面</title>
 <script src="https://appsforoffice.microsoft.com/lib/1/hosted/Office.js" type="text/javascript"></script>
+<script src="../js/companies.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
     <h2>登録会社名</h2>
@@ -186,7 +188,10 @@ $html .= <<<EOT
 	<h2>金額</h2>
 		<input type="text" name="kingaku">
 		<input type="hidden" name="token" value={$GLOBALS ['token'] ['access_token']}>
-		<input type="submit" value="送信" />
+		<button id="readDataBtn">金額設定</button><br />
+		<button type="button" id="insert">登録</button>
+	<div id ="massage" />
+	<div id ="amount" />
 	</form>
 </body>
 </html>
