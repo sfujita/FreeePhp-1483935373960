@@ -10,7 +10,9 @@ Office.initialize = function (reason) {
         $("#insert").click(function() {
 
           // formを送信
-          $("form").submit();
+//          $("form").submit();
+        	document.getElementById('massage').innerText = "イベント発動";
+
         });
 
         // 登録ボタンを非活性化
