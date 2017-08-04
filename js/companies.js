@@ -10,8 +10,7 @@ Office.initialize = function (reason) {
         $("#insert").click(function() {
 
           // formを送信
-// $("form").submit();
-        	document.getElementById('massage').innerText = "イベント発動";
+        	$("form").submit();
 
         });
 
@@ -82,7 +81,9 @@ function readData() {
                     // 登録ボタンを非活性化
                     $("#insert").prop("disabled", true);
                 } else {
-                    document.getElementById('amount').innerText = "登録金額は" + val + "円です。";
+//                    document.getElementById('amount').innerText = "登録金額は" + val + "円です。";
+
+                    $("kingaku").val(val);
 
                     // 登録ボタンを活性化
                     $("#insert").prop("disabled", false);

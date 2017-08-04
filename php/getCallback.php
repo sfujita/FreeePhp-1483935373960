@@ -186,7 +186,7 @@ $html .= <<<EOT
 	<h2>支払期日(yyyy-mm-dd)※省略可</h2>
 		<input type="text" id="dueDate" value="" name="dueDate" size="12" maxlength="10">
 	<h2>金額</h2>
-		<input type="text" name="kingaku">
+		<input type="text" id="kingaku" name="kingaku">
 		<input type="hidden" name="token" value={$GLOBALS ['token'] ['access_token']}>
 		<input type="button" id="readDataBtn" value="金額設定">
 		<br />
