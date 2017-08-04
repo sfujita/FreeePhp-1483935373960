@@ -17,12 +17,16 @@ Office.initialize = function (reason) {
 
         // 発生日の入力値を編集する
         $("#issueDate").blur(function(){
-        	dateConv($("#issueDate").val());
+        	var date =　dateConv($("#issueDate").val());
+
+        	$("#issueDate").val(date);
         });
 
         // 支払期日の入力値を編集する
         $("#dueDate").blur(function(){
-        	dateConv($("#dueDate").val());
+        	var date =　dateConv($("#dueDate").val());
+
+        	$("#dueDate").val(date);
         });
 
         // 登録ボタンを非活性化
