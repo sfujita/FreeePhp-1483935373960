@@ -79,14 +79,16 @@ function readData() {
  */
 function dateConv(date) {
 
-	// 入力値が8桁、または10桁以外の場合、入力欄を空にする
-	if (date.length != 8 && date.length != 10) {
-		return null;
+	// 10桁の場合、何もしない
+	if (date.length == 10) {
+		return date;
 	}
 
-	// 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
-	if(date.length == 8) {
-		t = date.substr(0,4) +"-"+ date.substr(4,2) + "-" +date.substr(6,2);
+	// 8桁の入力の場合、/を追加してYYYY-MM-DDの形式に変換する
+	if　(date.length == 8) {
+		var t = date.substr(0,4) +"-"+ date.substr(4,2) + "-" +date.substr(6,2);
 		return t;
 	}
+
+	return null;
 }
