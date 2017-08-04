@@ -83,7 +83,7 @@ function readData() {
                 } else {
 //                    document.getElementById('amount').innerText = "登録金額は" + val + "円です。";
 
-                    $("kingaku").val(val);
+                    $("#kingaku").val(val);
 
                     // 登録ボタンを活性化
                     $("#insert").prop("disabled", false);
