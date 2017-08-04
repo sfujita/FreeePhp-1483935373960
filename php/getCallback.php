@@ -182,9 +182,9 @@ $html .= <<<EOT
 		<option value="expense">支出</option>
 	</select>
 	<h2>発生日(yyyy-mm-dd)</h2>
-		<input type="text" value="" name="issueDate">
+		<input type="text" id="issueDate" value="" name="issueDate" size="12" maxlength="10">
 	<h2>支払期日(yyyy-mm-dd)※省略可</h2>
-		<input type="text" value="" name="dueDate">
+		<input type="text" id="dueDate" value="" name="dueDate" size="12" maxlength="10">
 	<h2>金額</h2>
 		<input type="text" name="kingaku">
 		<input type="hidden" name="token" value={$GLOBALS ['token'] ['access_token']}>

@@ -15,6 +15,16 @@ Office.initialize = function (reason) {
 
         });
 
+        // 発生日の入力値を編集する
+        $("#issueDate").blur(function(){
+        	dateConv($("#issueDate").val());
+        });
+
+        // 支払期日の入力値を編集する
+        $("#dueDate").blur(function(){
+        	dateConv($("#dueDate").val());
+        });
+
         // 登録ボタンを非活性化
         $("#insert").prop("disabled", true);
 
@@ -59,3 +69,16 @@ function readData() {
         }
     });
 }
+
+/**
+ * 日付欄に/を入力する
+ */
+function dateConv(s) {
+	  var str = s.value;
+	  var n = str.length;
+	  // 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
+	  if(n == 8) {
+	      t = str.substr(0,4) +"-"+ str.substr(4,2) + "-" +str.substr(6,2);
+	      s.value = t;
+	  }
+	}
