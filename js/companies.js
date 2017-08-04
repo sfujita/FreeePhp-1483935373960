@@ -32,8 +32,35 @@ Office.initialize = function (reason) {
         // 登録ボタンを非活性化
         $("#insert").prop("disabled", true);
 
+        setToday();
+
     });
 };
+
+/**
+ * 発生日欄にデフォルト値で現在の日付を設定する
+ */
+function setToday() {
+
+	var today = new Date();
+
+	// 西暦を取得する
+	var year = today.getFullYear();
+	// 月を取得する
+	var month = today.getMonth() + 1;
+	// 月が一桁だった場合、頭に0を付ける
+	if (1 == month.length) {
+		month = "0" + month;
+	}
+	// 日を取得する
+	var day = today.getDate();
+	// 日が一桁だった場合、頭に0を付ける
+	if (1 == day.length) {
+		day = "0" + day;
+	}
+
+	$("#issueDate").val(year + "-" + month + "-" + day);
+}
 
 /**
  * 金額設定ボタン押下時イベント
@@ -58,7 +85,7 @@ function readData() {
                     document.getElementById('amount').innerText = "登録金額は" + val + "円です。";
 
                     // 登録ボタンを活性化
-//                    $("#insert").prop("disabled", false);
+                    $("#insert").prop("disabled", false);
                 }
 
 
