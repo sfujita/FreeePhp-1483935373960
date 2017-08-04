@@ -10,7 +10,7 @@ Office.initialize = function (reason) {
         $("#insert").click(function() {
 
           // formを送信
-//          $("form").submit();
+// $("form").submit();
         	document.getElementById('massage').innerText = "イベント発動";
 
         });
@@ -77,14 +77,16 @@ function readData() {
 /**
  * 日付欄に/を入力する
  */
-function dateConv(s) {
-//	  var str = s.value;
-//	  var n = str.length;
-//	  // 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
-//	  if(n == 8) {
-//	      t = str.substr(0,4) +"-"+ str.substr(4,2) + "-" +str.substr(6,2);
-//	      s.value = t;
-//	  }
-	return "999";
+function dateConv(date) {
 
+	// 入力値が8桁、または10桁以外の場合、入力欄を空にする
+	if (date.length != 8 && date.length != 10) {
+		return null;
 	}
+
+	// 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
+	if(date.length == 8) {
+		t = date.substr(0,4) +"-"+ date.substr(4,2) + "-" +date.substr(6,2);
+		return t;
+	}
+}
