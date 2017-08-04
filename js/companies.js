@@ -58,7 +58,7 @@ function readData() {
                     document.getElementById('amount').innerText = "登録金額は" + val + "円です。";
 
                     // 登録ボタンを活性化
-                    $("#insert").prop("disabled", false);
+//                    $("#insert").prop("disabled", false);
                 }
 
 
@@ -75,7 +75,7 @@ function readData() {
 }
 
 /**
- * 日付欄に/を入力する
+ * 日付欄に-を入力する
  */
 function dateConv(date) {
 
