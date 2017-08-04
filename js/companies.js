@@ -17,18 +17,16 @@ Office.initialize = function (reason) {
 
         // 発生日の入力値を編集する
         $("#issueDate").blur(function(){
-//        	var date =　dateConv($("#issueDate").val());
-//
-//        	$("#issueDate").val(date);
-        	$("#issueDate").val("666");
+        	var date =　dateConv($("#issueDate").val());
+
+        	$("#issueDate").val(date);
         });
 
         // 支払期日の入力値を編集する
         $("#dueDate").blur(function(){
-//        	var date =　dateConv($("#dueDate").val());
-//
-//        	$("#dueDate").val(date);
-        	$("#issueDate").val("777");
+        	var date =　dateConv($("#dueDate").val());
+
+        	$("#dueDate").val(date);
         });
 
         // 登録ボタンを非活性化
@@ -80,11 +78,13 @@ function readData() {
  * 日付欄に/を入力する
  */
 function dateConv(s) {
-	  var str = s.value;
-	  var n = str.length;
-	  // 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
-	  if(n == 8) {
-	      t = str.substr(0,4) +"-"+ str.substr(4,2) + "-" +str.substr(6,2);
-	      s.value = t;
-	  }
+//	  var str = s.value;
+//	  var n = str.length;
+//	  // 8桁の入力の場合、/を追加してYYYY/MM/DDの形式に変換する
+//	  if(n == 8) {
+//	      t = str.substr(0,4) +"-"+ str.substr(4,2) + "-" +str.substr(6,2);
+//	      s.value = t;
+//	  }
+	return "999";
+
 	}
