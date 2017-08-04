@@ -188,8 +188,9 @@ $html .= <<<EOT
 	<h2>金額</h2>
 		<input type="text" name="kingaku">
 		<input type="hidden" name="token" value={$GLOBALS ['token'] ['access_token']}>
-		<button id="readDataBtn">金額設定</button><br />
-		<button type="button" id="insert">登録</button>
+		<input type="button" id="readDataBtn" value="金額設定">
+		<br />
+		<input type="submit" id="insert" value="登録">
 	<div id ="massage" />
 	<div id ="amount" />
 	</form>
